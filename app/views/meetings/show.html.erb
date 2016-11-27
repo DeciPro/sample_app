@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @meeting.name %>
+</p>
+<table>
+  <tr>
+    <th></th>
+    <% for decision in @meeting.decisions %>
+        <td><%= decision.name %></td>
+    <% end -%>
+  </tr>
+  <tr>
+  <tr><% for criterium in @meeting.criteria %></tr>
+        <td><%= criterium.name %></td>
+    <% end -%>
+  </tr>
+</table>
+
+<%= link_to 'Edit', edit_user_meeting_path(@meeting.user_id, @meeting) %> |
+<%= link_to 'Back', user_meetings_path %>

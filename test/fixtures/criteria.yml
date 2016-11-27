@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  decision_id: one
+  name: MyString
+  weight: 1
+  value: 1
+
+two:
+  decision_id: two
+  name: MyString
+  weight: 1
+  value: 1

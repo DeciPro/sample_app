@@ -1,0 +1,6 @@
+<h1>Editing Meeting</h1>
+
+<%= render 'form', path: user_meeting_path(@meeting.user_id, @meeting) %>
+
+<%= link_to 'Show', user_meeting_path %> |
+<%= link_to 'Back', user_meetings_path %>

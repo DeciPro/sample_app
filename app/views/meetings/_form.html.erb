@@ -1,0 +1,39 @@
+<%= form_for @meeting, url: path do |f| %>
+  <% if @meeting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@meeting.errors.count, "error") %> prohibited this meeting from being saved:</h2>
+
+      <ul>
+      <% @meeting.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+    <div class="field">
+  <table>
+    <tr>
+      <th></th>
+      <%= f.fields_for :decisions do |a| -%>
+          <%= render 'decision_fields', :f => a %>
+      <% end -%>
+      <td><%= link_to_add_fields "Add Decision", f, :decisions %></td>
+    </tr>
+    <tr>
+      <tr><%= f.fields_for :criteria do |a| -%></tr>
+            <%= render 'criterium_fields', :f => a %>
+        <% end -%>
+    </tr>
+    <tr><td><%= link_to_add_fields 'Add Criterium', f, :criteria %></td></tr>
+  </table>
+    </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

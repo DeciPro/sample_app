@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  participant: one
+  decision: one
+  criterium: one
+  weight: 1
+  value: 1
+
+two:
+  participant: two
+  decision: two
+  criterium: two
+  weight: 1
+  value: 1
