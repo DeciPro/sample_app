@@ -1,0 +1,59 @@
+<%= form_for @participant, url: path do |f| %>
+  <% if @participant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@participant.errors.count, "error") %> prohibited this participant from being saved:</h2>
+
+      <ul>
+      <% @participant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% @meeting = Meeting.find(params[:meeting_id]) %>
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
+
+
+    <div class="field">
+      <table>
+        <tr>
+        <th>
+          <td>Weight</td>
+          <% @meeting.decisions.each do |d| -%>
+              <td><%= d.name %></td>
+          <% end %>
+          </tr>
+
+        <% @meeting.criteria.each do |c| -%>
+            <tr>
+              <td> <%= c.name %></td>
+              <%= f.fields_for :c do |w|%>
+              <td> <%= w.number_field :weight, in: 1...6 %></td>
+                  <% end %>
+              <% @meeting.decisions.each do |d| -%>
+                  <%= f.fields_for :participantinputs, @participant.participantinputs.find_or_initialize_by(decision: d, criterium: c) do |a| -%>
+                      <td>
+                      <%= a.number_field :value, in: 1...6 do |v| %>
+                      <%= a.hidden_field :weight,:value => v.value*c.weight %>
+                            <% end %>
+                      <%= a.hidden_field :decision_id,:value => d.id %>
+                      <%= a.hidden_field :criterium_id,:value => c.id %>
+                      </td>
+                  <% end -%>
+              <% end %>
+            </tr>
+          <% end %>
+      </table>
+    </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

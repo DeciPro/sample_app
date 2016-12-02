@@ -11,12 +11,17 @@
         <td><%= decision.name %></td>
     <% end -%>
   </tr>
-  <tr>
   <tr><% for criterium in @meeting.criteria %></tr>
         <td><%= criterium.name %></td>
+        <% for decision in @meeting.decisions %>
+            <% @value = 0 %>
+            <% for participant in @meeting.participants %>
+            <% @value+= participant.participantinputs.find_by(decision_id: decision.id, criterium_id: criterium.id).value %>
+            <% end %>
+            <td><%= @value %></td>
+        <% end -%>
     <% end -%>
-  </tr>
 </table>
 
-<%= link_to 'Edit', edit_user_meeting_path(@meeting.user_id, @meeting) %> |
+<%= link_to 'Edit', [:edit, @meeting.user, @meeting] %> |
 <%= link_to 'Back', user_meetings_path %>

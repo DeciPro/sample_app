@@ -16,7 +16,11 @@ Rails.application.routes.draw do
     #post 'meetings/new',to: 'meetings#create', on: :member
   #end
   resources :users do
-  resources :meetings
-end
+    resources :meetings
+  end
+  resources :meetings do
+    resources :participants
+  end
+  #resources :participants
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

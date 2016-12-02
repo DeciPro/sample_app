@@ -4,8 +4,8 @@ class MeetingsController < ApplicationController
   # GET /meetings
   # GET /meetings.json
   def index
-    #@meetings = Meeting.find([params[:id]])
-    @meetings = Array.new
+    @meetings = User.find(params[:user_id]).meetings
+    #@meetings = Array.new
     Meeting.all.each do |m|
       if m.user_id == current_user.id
         @meetings.push(m)
@@ -32,7 +32,7 @@ class MeetingsController < ApplicationController
   # POST /meetings
   # POST /meetings.json
   def create
-    @meeting = Meeting.create(meeting_params)
+    @meeting = Meeting.new(meeting_params)
     @meeting.user_id = current_user.id
 
     respond_to do |format|
@@ -79,7 +79,7 @@ class MeetingsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def meeting_params
       params.require(:meeting).permit(:name, decisions_attributes: [:id, :name, :meeting_id, :_destroy],
-                                      criteria_attributes: [:id, :name, :meeting_id, :_destroy])
+                                      criteria_attributes: [:id, :name, :weight,:meeting_id, :_destroy])
     end
 
   def decision_params

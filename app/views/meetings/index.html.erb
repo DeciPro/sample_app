@@ -5,7 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Meeting Name</th>
       <th>User</th>
       <th colspan="3"></th>
     </tr>
@@ -15,7 +15,7 @@
     <% @meetings.each do |meeting| %>
       <tr>
         <td><%= meeting.name %></td>
-        <td><%= meeting.user %></td>
+        <td><%= meeting.user.name %></td>
         <td><%= link_to 'Show', user_meeting_path(meeting.user, meeting) %></td>
         <td><%= link_to 'Edit', edit_user_meeting_path(meeting.user, meeting) %></td>
         <td><%= link_to 'Destroy', user_meeting_path(meeting.user, meeting), method: :delete, data: { confirm: 'Are you sure?' } %></td>
