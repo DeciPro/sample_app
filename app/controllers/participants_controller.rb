@@ -26,6 +26,13 @@ class ParticipantsController < ApplicationController
   def create
     @participant = Participant.new(participant_params)
     @participant.meeting_id = Meeting.find(params[:meeting_id]).id
+    for cw in @participant.criterium_weights do
+      for pi in @participant.participantinputs do
+        if cw.criterium_id == pi.criterium_id
+          pi.weighted_value=pi.value*cw.weight
+        end
+      end
+    end
 
     respond_to do |format|
       if @participant.save
@@ -43,6 +50,14 @@ class ParticipantsController < ApplicationController
   def update
     respond_to do |format|
       if @participant.update(participant_params)
+        for cw in @participant.criterium_weights do
+          for pi in @participant.participantinputs do
+            if cw.criterium_id == pi.criterium_id
+              pi.weighted_value=pi.value*cw.weight
+            end
+          end
+        end
+        @participant.save
         format.html { redirect_to meeting_participant_path(@participant.meeting_id, @participant), notice: 'Your input was successfully updated.' }
         format.json { render :show, status: :ok, location: @participant }
       else
@@ -70,7 +85,8 @@ class ParticipantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def participant_params
-      params.require(:participant).permit(:name, :email, participantinputs_attributes:
-          [:id, :participant_id, :decision_id, :criterium_id, :weight, :value])
+      params.require(:participant).permit(:name, :comment, participantinputs_attributes:
+          [:id, :participant_id, :decision_id, :criterium_id, :value],
+      criterium_weights_attributes:[:id, :criterium_id, :weight])
     end
 end

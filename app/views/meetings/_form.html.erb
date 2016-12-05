@@ -18,13 +18,15 @@
 
     <div class="field">
   <table>
+    <thead>
     <tr>
       <th></th>
       <%= f.fields_for :decisions do |a| -%>
           <%= render 'decision_fields', :f => a %>
       <% end -%>
-      <td><%= link_to_add_fields "Add Decision", f, :decisions %></td>
+      <th><%= link_to_add_fields "Add Decision", f, :decisions %></th>
     </tr>
+    </thead>
     <tr>
       <tr><%= f.fields_for :criteria do |a| -%></tr>
             <%= render 'criterium_fields', :f => a %>

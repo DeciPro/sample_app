@@ -15,10 +15,6 @@
       <%= f.label :name %>
       <%= f.text_field :name %>
     </div>
-    <div class="field">
-      <%= f.label :email %>
-      <%= f.text_field :email %>
-    </div>
 
 
     <div class="field">
@@ -34,15 +30,16 @@
         <% @meeting.criteria.each do |c| -%>
             <tr>
               <td> <%= c.name %></td>
-              <%= f.fields_for :c do |w|%>
-              <td> <%= w.number_field :weight, in: 1...6 %></td>
+              <%= f.fields_for :criterium_weights, @participant.criterium_weights.find_or_initialize_by(criterium: c) do |w|%>
+              <td>
+                <%= w.number_field :weight, in: 1...6 %>
+                <%= w.hidden_field :criterium_id,:value => c.id %>
+              </td>
                   <% end %>
               <% @meeting.decisions.each do |d| -%>
                   <%= f.fields_for :participantinputs, @participant.participantinputs.find_or_initialize_by(decision: d, criterium: c) do |a| -%>
                       <td>
-                      <%= a.number_field :value, in: 1...6 do |v| %>
-                      <%= a.hidden_field :weight,:value => v.value*c.weight %>
-                            <% end %>
+                      <%= a.number_field :value, in: 1...6 %>
                       <%= a.hidden_field :decision_id,:value => d.id %>
                       <%= a.hidden_field :criterium_id,:value => c.id %>
                       </td>
@@ -51,6 +48,11 @@
             </tr>
           <% end %>
       </table>
+    </div>
+
+    <div class="field">
+      <%= f.label :comment %>
+      <%= f.text_area :comment, :rows => 3 %>
     </div>
 
   <div class="actions">

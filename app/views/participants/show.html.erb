@@ -1,4 +1,34 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <strong>Name:</strong>
+  <%= @participant.name %>
+</p>
+
+<div class="field">
+  <table>
+    <thead>
+    <tr>
+      <th></th>
+      <% for decision in @participant.meeting.decisions %>
+          <th><%= decision.name %></th>
+      <% end -%>
+    </tr>
+    </thead>
+    <tr><% for criterium in @participant.meeting.criteria %></tr>
+          <td><%= criterium.name %></td>
+          <% for decision in @participant.meeting.decisions %>
+              <td><%= @participant.participantinputs.find_by(decision_id: decision.id, criterium_id: criterium.id).weighted_value %></td>
+          <% end -%>
+        <% end -%>
+   </table>
+</div>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @participant.comment %>
+</p>
+
+
 <%= link_to 'Edit', edit_meeting_participant_path(@participant.meeting_id, @participant) %> |
 <%= link_to 'Back', meeting_participant_path(@participant.meeting_id, @participant) %>
