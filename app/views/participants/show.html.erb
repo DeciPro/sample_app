@@ -9,7 +9,7 @@
   <table>
     <thead>
     <tr>
-      <th></th>
+      <th><td>Weight</td></th>
       <% for decision in @participant.meeting.decisions %>
           <th><%= decision.name %></th>
       <% end -%>
@@ -17,6 +17,7 @@
     </thead>
     <tr><% for criterium in @participant.meeting.criteria %></tr>
           <td><%= criterium.name %></td>
+          <td><%= @participant.criterium_weights.find_by(criterium: criterium).weight %></td>
           <% for decision in @participant.meeting.decisions %>
               <td><%= @participant.participantinputs.find_by(decision_id: decision.id, criterium_id: criterium.id).weighted_value %></td>
           <% end -%>

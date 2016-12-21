@@ -24,7 +24,7 @@
       <%= f.fields_for :decisions do |a| -%>
           <%= render 'decision_fields', :f => a %>
       <% end -%>
-      <th><%= link_to_add_fields "Add Decision", f, :decisions %></th>
+      <th><%= link_to_add_fields 'Add Alternative', f, :decisions %></th>
     </tr>
     </thead>
     <tr>
