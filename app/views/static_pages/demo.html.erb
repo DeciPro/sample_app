@@ -4,16 +4,15 @@
     <div class="row">
       <article class="page hentry">
         <header class="entry-header">
-          </br>
-          </br>
-          </br>
           <h4 id="test">DeciPro Demo</h4>
         </header>
+        <br>
         <div class="entry-content">
           <div class="container">
             <form class="new_participant" id="new_participant" accept-charset="UTF-8" method="post">
               <div class="field">
                 <table  style="float: left">
+                  <caption>First Participant</caption>
                   <th>
                   <td>Weight</td>
                   <td>a1</td>
@@ -22,29 +21,30 @@
                   <tr>
                     <td> c1</td>
                     <td>
-                      <input id="w_p1_c1" min="1" max="5" type="number" value="2" onclick='update("a1_c1","w_p1_c1","p1_a1_c1","w_p2_c1","p2_a1_c1");update("a2_c1","w_p1_c1","p1_a2_c1","w_p2_c1","p2_a2_c1");' />
+                      <input id="w_p1_c1" min="1" max="5" value="2" type="number" onchange='update("a1_c1","w_p1_c1","p1_a1_c1","w_p2_c1","p2_a1_c1");update("a2_c1","w_p1_c1","p1_a2_c1","w_p2_c1","p2_a2_c1");' />
                     </td>
                     <td>
-                      <input id="p1_a1_c1" min="1" max="5" value="2"  type="number" onclick='update("a1_c1","w_p1_c1","p1_a1_c1","w_p2_c1","p2_a1_c1")'  />
+                      <input id="p1_a1_c1" min="1" max="5" value="2"  type="number" onchange='update("a1_c1","w_p1_c1","p1_a1_c1","w_p2_c1","p2_a1_c1")'  />
                     </td>
                     <td>
-                      <input id="p1_a2_c1" min="1" max="5" value="2"  type="number" onclick='update("a2_c1","w_p1_c1","p1_a2_c1","w_p2_c1","p2_a2_c1")'  />
+                      <input id="p1_a2_c1" min="1" max="5" value="2"  type="number" onchange='update("a2_c1","w_p1_c1","p1_a2_c1","w_p2_c1","p2_a2_c1")'  />
                     </td>
                   </tr>
                   <tr>
                     <td> c2</td>
                     <td>
-                      <input id="w_p1_c2" min="1" max="5" value="2"  type="number" onclick='update("a1_c2","w_p1_c2","p1_a1_c2","w_p2_c2","p2_a1_c2");update("a2_c2","w_p1_c2","p1_a2_c2","w_p2_c2","p2_a2_c2");' />
+                      <input id="w_p1_c2" min="1" max="5" value="2"  type="number" onchange='update("a1_c2","w_p1_c2","p1_a1_c2","w_p2_c2","p2_a1_c2");update("a2_c2","w_p1_c2","p1_a2_c2","w_p2_c2","p2_a2_c2");' />
                     </td>
                     <td>
-                      <input id="p1_a1_c2" min="1" max="5" value="2"  type="number" onclick='update("a1_c2","w_p1_c2","p1_a1_c2","w_p2_c2","p2_a1_c2")' />
+                      <input id="p1_a1_c2" min="1" max="5" value="2"  type="number" onchange='update("a1_c2","w_p1_c2","p1_a1_c2","w_p2_c2","p2_a1_c2")' />
                     </td>
                     <td>
-                      <input id="p1_a2_c2" min="1" max="5" value="2"  type="number" onclick='update("a2_c2","w_p1_c2","p1_a2_c2","w_p2_c2","p2_a2_c2")' />
+                      <input id="p1_a2_c2" min="1" max="5" value="2"  type="number" onchange='update("a2_c2","w_p1_c2","p1_a2_c2","w_p2_c2","p2_a2_c2")' />
                     </td>
                   </tr>
                 </table>
                 <table  style="float: inherit">
+                  <caption>Second Participant</caption>
                   <th>
                   <td>Weight</td>
                   <td>a1</td>
@@ -53,25 +53,25 @@
                   <tr>
                     <td> c1</td>
                     <td>
-                      <input id="w_p2_c1" min="1" max="5" type="number" value="3" onclick='update("a1_c1","w_p1_c1","p1_a1_c1","w_p2_c1","p2_a1_c1");update("a2_c1","w_p1_c1","p1_a2_c1","w_p2_c1","p2_a2_c1");' />
+                      <input id="w_p2_c1" min="1" max="5" type="number" value="3" onchange='update("a1_c1","w_p1_c1","p1_a1_c1","w_p2_c1","p2_a1_c1");update("a2_c1","w_p1_c1","p1_a2_c1","w_p2_c1","p2_a2_c1");' />
                     </td>
                     <td>
-                      <input id="p2_a1_c1" min="1" max="5" value="3" type="number" onclick='update("a1_c1","w_p1_c1","p1_a1_c1","w_p2_c1","p2_a1_c1")' />
+                      <input id="p2_a1_c1" min="1" max="5" value="3" type="number" onchange='update("a1_c1","w_p1_c1","p1_a1_c1","w_p2_c1","p2_a1_c1")' />
                     </td>
                     <td>
-                      <input id="p2_a2_c1" min="1" max="5" value="3" type="number" onclick='update("a2_c1","w_p1_c1","p1_a2_c1","w_p2_c1","p2_a2_c1")' />
+                      <input id="p2_a2_c1" min="1" max="5" value="3" type="number" onchange='update("a2_c1","w_p1_c1","p1_a2_c1","w_p2_c1","p2_a2_c1")' />
                     </td>
                   </tr>
                   <tr>
                     <td> c2</td>
                     <td>
-                      <input id="w_p2_c2" min="1" max="5" value="3" type="number" onclick='update("a1_c2","w_p1_c2","p1_a1_c2","w_p2_c2","p2_a1_c2");update("a2_c2","w_p1_c2","p1_a2_c2","w_p2_c2","p2_a2_c2");' />
+                      <input id="w_p2_c2" min="1" max="5" value="3" type="number" onchange='update("a1_c2","w_p1_c2","p1_a1_c2","w_p2_c2","p2_a1_c2");update("a2_c2","w_p1_c2","p1_a2_c2","w_p2_c2","p2_a2_c2");' />
                     </td>
                     <td>
-                      <input id="p2_a1_c2" min="1" max="5" value="3" type="number" onclick='update("a1_c2","w_p1_c2","p1_a1_c2","w_p2_c2","p2_a1_c2")' />
+                      <input id="p2_a1_c2" min="1" max="5" value="3" type="number" onchange='update("a1_c2","w_p1_c2","p1_a1_c2","w_p2_c2","p2_a1_c2")' />
                     </td>
                     <td>
-                      <input id="p2_a2_c2" min="1" max="5" value="3" type="number" onclick='update("a2_c2","w_p1_c2","p1_a2_c2","w_p2_c2","p2_a2_c2")' />
+                      <input id="p2_a2_c2" min="1" max="5" value="3" type="number" onchange='update("a2_c2","w_p1_c2","p1_a2_c2","w_p2_c2","p2_a2_c2")' />
                     </td>
                   </tr>
                 </table>
@@ -80,6 +80,7 @@
                 <br>
                 <br>
                 <table>
+                  <caption>Overall scores</caption>
                   <th>
                   <td>a1</td>
                   <td>a2</td>
@@ -102,7 +103,17 @@
                       <label id="a2_c2"/>
                     </td>
                   </tr>
+                  <tr>
+                    <td>Total</td>
+                    <td>
+                      <label id="t_a1"/>
+                    </td>
+                    <td>
+                      <label id="t_a2"/>
+                    </td>
+                  </tr>
                 </table>
+                <p id="rank"></p>
               </div>
             </form>
           </div>
@@ -118,9 +129,28 @@
   update("a2_c1","w_p1_c1","p1_a2_c1","w_p2_c1","p2_a2_c1");
   update("a1_c2","w_p1_c2","p1_a1_c2","w_p2_c2","p2_a1_c2");
   update("a2_c2","w_p1_c2","p1_a2_c2","w_p2_c2","p2_a2_c2");
+
   function update(update,v1,v2,v3,v4) {
     document.getElementById(update).innerHTML =
         document.getElementById(v1).value*document.getElementById(v2).value +
         document.getElementById(v3).value*document.getElementById(v4).value;
+    updateTotal("t_a1","a1_c1","a1_c2");
+    updateTotal("t_a2","a2_c1","a2_c2");
+    compare();
   }
+
+  function updateTotal(update, v1, v2) {
+    document.getElementById(update).innerHTML =
+        parseInt(document.getElementById(v1).innerHTML) + parseInt(document.getElementById(v2).innerHTML);
+  }
+
+  function compare() {
+    if (parseInt(document.getElementById("t_a1").innerHTML) > parseInt(document.getElementById("t_a2").innerHTML))
+      document.getElementById("rank").innerHTML = 'Rank 1 is A1';
+    else if (parseInt(document.getElementById("t_a1").innerHTML) == parseInt(document.getElementById("t_a2").innerHTML))
+      document.getElementById("rank").innerHTML = 'Rank 1 are A1, A2';
+    else
+      document.getElementById("rank").innerHTML = 'Rank 1 is A2';
+  }
+
 </script>
