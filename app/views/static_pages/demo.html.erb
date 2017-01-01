@@ -168,6 +168,11 @@
   var overall = [];//this array contains the overall score
   var total = [];//this array contains the total score for each alternative
 
+  var num_criteria = 2;
+  var max_score = 5;
+  var num_participants = 3;
+  var max_alternatives = 2;
+
   updateInput();
 
   function compare() {
@@ -198,7 +203,8 @@ function updateInput() {
   overall = updateOverall(inputs);
   total = updateTotal(overall);
   print(overall,total);
-  compare();
+  unanimity(inputs);
+  //compare();
 }
 //get three dimensional array as input and return two dimensional array as output
 function updateOverall(inputArray) {
@@ -230,6 +236,33 @@ function updateOverall(inputArray) {
 
     document.getElementById('t_a1').innerHTML =array2[0];
     document.getElementById('t_a2').innerHTML =array2[1];
+  }
+
+  function unanimity(inputArray){
+
+    var finalUnanimity = 0;
+    var stringToprint = '';
+    for (var i = 0; i < num_criteria; i++)
+    {
+      var criteriaVariance = Math.abs(inputArray[0][i][0] - inputArray[1][i][0]) + Math.abs(inputArray[1][i][0] - inputArray[2][i][0]) + Math.abs(inputArray[2][i][0] - inputArray[0][i][0]) +
+          Math.abs(inputArray[0][i][1] - inputArray[1][i][1]) + Math.abs(inputArray[1][i][1] - inputArray[2][i][1]) + Math.abs(inputArray[2][i][1] - inputArray[0][i][1]) +
+          Math.abs(inputArray[0][i][2] - inputArray[1][i][2]) + Math.abs(inputArray[1][i][2] - inputArray[2][i][2]) + Math.abs(inputArray[2][i][2] - inputArray[0][i][2]) ;
+
+      var maxVariance = max_score * num_participants * (max_alternatives + 1);
+      var criteriaUnanimity = ((maxVariance - criteriaVariance) * 100) / maxVariance;
+
+      // fared.. take the output from here!!
+      var cn=i+1;
+      var c_id='c'+cn;
+      stringToprint+="<br /> Unanimity for criteria" + document.getElementById(c_id).innerHTML + " is " + criteriaUnanimity + " %";
+
+      finalUnanimity += criteriaUnanimity;
+    }
+
+    finalUnanimity /= num_criteria;
+
+    stringToprint+="<br /> Overall unanimity is " + finalUnanimity + " %";
+    document.getElementById("rank").innerHTML=stringToprint;
   }
 
 </script>
