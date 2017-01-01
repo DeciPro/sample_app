@@ -12,7 +12,7 @@
             <form class="new_participant" id="new_participant" accept-charset="UTF-8" method="post">
               <div class="field">
                 <table  style="float: left">
-                  <caption>First Participant</caption>
+                  <caption id="p0">First Participant</caption>
                   <th>
                   <td>Weight</td>
                   <td id="a1">a1</td>
@@ -50,7 +50,7 @@
                   </tr>
                 </table>
                 <table  style="float: left">
-                  <caption>Second Participant</caption>
+                  <caption id="p1">Second Participant</caption>
                   <th>
                   <td>Weight</td>
                   <td>a1</td>
@@ -88,7 +88,7 @@
                   </tr>
                 </table>
                 <table  style="float: inherit">
-                  <caption>Third Participant</caption>
+                  <caption id="p2">Third Participant</caption>
                   <th>
                   <td>Weight</td>
                   <td>a1</td>
@@ -203,7 +203,10 @@ function updateInput() {
   overall = updateOverall(inputs);
   total = updateTotal(overall);
   print(overall,total);
-  unanimity(inputs);
+  //unanimity(inputs);
+  //OpinionDifference(inputs);
+
+  document.getElementById("rank").innerHTML=unanimity(inputs)+OpinionDifference(inputs);
   //compare();
 }
 //get three dimensional array as input and return two dimensional array as output
@@ -254,15 +257,81 @@ function updateOverall(inputArray) {
       // fared.. take the output from here!!
       var cn=i+1;
       var c_id='c'+cn;
-      stringToprint+="<br /> Unanimity for criteria" + document.getElementById(c_id).innerHTML + " is " + criteriaUnanimity + " %";
+      stringToprint+="<br /> Unanimity for criteria" + document.getElementById(c_id).innerHTML + " is " + Math.floor(criteriaUnanimity) + " %";
 
       finalUnanimity += criteriaUnanimity;
     }
 
     finalUnanimity /= num_criteria;
 
-    stringToprint+="<br /> Overall unanimity is " + finalUnanimity + " %";
-    document.getElementById("rank").innerHTML=stringToprint;
+    stringToprint+="<br /> Overall unanimity is " + Math.floor(finalUnanimity) + " %";
+    return stringToprint;
+  }
+
+  function OpinionDifference(inputArray)
+  {
+    var stringToprint = '';
+
+    for (var i = 0; i < num_criteria; i++)
+    {
+      var cn=i+1;
+      var c_id='c'+cn;
+      // take the output for difference in opinions on weights from here. Fared
+      if(Math.abs(inputArray[0][i][0] - inputArray[1][i][0]) >= 3)
+      {
+        stringToprint+="<br/>Participants 1 and 2 differ greatly on their weights for criteria " + document.getElementById(c_id).innerHTML;
+      }
+
+      if(Math.abs(inputArray[1][i][0] - inputArray[2][i][0]) >= 3)
+      {
+        stringToprint+="<br/>Participants 2 and 3 differ greatly on their weights for criteria " + document.getElementById(c_id).innerHTML;
+      }
+
+      if(Math.abs(inputArray[2][i][0] - inputArray[0][i][0]) >= 3)
+      {
+        stringToprint+="<br/>Participants 1 and 3 differ greatly on their weights for criteria " + document.getElementById(c_id).innerHTML;
+      }
+
+      for (var j = 1; j < max_alternatives + 1; j++)
+      {
+        if(Math.abs(inputArray[0][i][j] - inputArray[1][i][j]) >= 3)
+        {
+          var an=j;
+          var a_id='a'+an;
+          var p1_id = 'p' +  0;
+          var p2_id = 'p' +  1;
+          // fared take the output from here please. read the line fully. you will understand what i am trying to do
+          stringToprint+="<br/>Participants " + document.getElementById(p1_id).innerHTML  + " and " + document.getElementById(p2_id).innerHTML + " differ over criteria " +
+              document.getElementById(c_id).innerHTML + " on alternative " +
+              document.getElementById(a_id).innerHTML;
+        }
+
+        if(Math.abs(inputArray[1][i][j] - inputArray[2][i][j]) >= 3)
+        {
+          var an=j;
+          var a_id='a'+an;
+          var p1_id = 'p' +  1;
+          var p2_id = 'p' +  2;
+          // fared take the output from here please. read the line fully. you will understand what i am trying to do
+          stringToprint+="<br/>Participants " + document.getElementById(p1_id).innerHTML  + " and " + document.getElementById(p2_id).innerHTML + " differ over criteria " +
+              document.getElementById(c_id).innerHTML + " on alternative " +
+              document.getElementById(a_id).innerHTML;
+        }
+
+        if(Math.abs(inputArray[0][i][j] - inputArray[2][i][j]) >= 3)
+        {
+          var an=j;
+          var a_id='a'+an;
+          var p1_id = 'p' +  0;
+          var p2_id = 'p' +  2;
+          // fared take the output from here please. read the line fully. you will understand what i am trying to do
+          stringToprint+="<br/>Participants " + document.getElementById(p1_id).innerHTML  + " and " + document.getElementById(p2_id).innerHTML + " differ over criteria " +
+              document.getElementById(c_id).innerHTML + " on alternative " +
+              document.getElementById(a_id).innerHTML;
+        }
+      }
+    }
+    return stringToprint;
   }
 
 </script>
