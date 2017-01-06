@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   #resources :meetings
-  root   'static_pages#home'
+  root   'static_pages#demo'
+  # root   'static_pages#home'
   get    '/help',    to: 'static_pages#help'
   get    '/about',   to: 'static_pages#about'
   get    '/demo',   to: 'static_pages#demo'
@@ -9,19 +10,13 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
-  #resources :users do
-    #get 'meetings',to: 'meetings#index', on: :member
-    #get 'meetings/:id',to: 'meetings#show', on: :member
-    #get 'meetings/:id/edit',to: 'meetings#edit', on: :member
-    #get 'meetings/new',to: 'meetings#new', on: :member
-    #post 'meetings/new',to: 'meetings#create', on: :member
+
   #end
-  resources :users do
-    resources :meetings
-  end
-  resources :meetings do
-    resources :participants
-  end
-  #resources :participants
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # resources :users do
+  #   resources :meetings
+  # end
+  # resources :meetings do
+  #   resources :participants
+  # end
+
 end

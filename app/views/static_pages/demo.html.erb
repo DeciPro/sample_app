@@ -1,163 +1,155 @@
 <% provide(:title, "Demo") %>
 <div id="content" class="page-wrap">
   <div class="container content-wrapper">
-    <div class="row">
-      <article class="page hentry">
-        <header class="entry-header">
-          <h4 id="test">DeciPro Demo</h4>
-        </header>
-        <br>
-        <div class="entry-content">
-          <div class="container">
-            <form class="new_participant" id="new_participant" accept-charset="UTF-8" method="post">
-              <div class="field">
-                <table  style="float: left">
-                  <caption id="p0">First Participant</caption>
-                  <th>
-                  <td>Weight</td>
-                  <td id="a1">a1</td>
-                  <td id="a2">a2</td>
-                  </th>
-                  <tr>
-                    <td id="c1"> c1</td>
-                    <td>
-                      <input id="w_p1_c1" min="1" max="5" value="2" type="number" onkeydown="return false"
-                             onchange='updateInput()' />
-                    </td>
-                    <td>
-                      <input id="p1_a1_c1" min="1" max="5" value="2"  type="number" onkeydown="return false"
-                             onchange='updateInput()'  />
-                    </td>
-                    <td>
-                      <input id="p1_a2_c1" min="1" max="5" value="2"  type="number" onkeydown="return false"
-                             onchange='updateInput()'  />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td id="c2"> c2</td>
-                    <td>
-                      <input id="w_p1_c2" min="1" max="5" value="2"  type="number" onkeydown="return false"
-                             onchange='updateInput()' />
-                    </td>
-                    <td>
-                      <input id="p1_a1_c2" min="1" max="5" value="2"  type="number" onkeydown="return false"
-                             onchange='updateInput()' />
-                    </td>
-                    <td>
-                      <input id="p1_a2_c2" min="1" max="5" value="2"  type="number" onkeydown="return false"
-                             onchange='updateInput()' />
-                    </td>
-                  </tr>
-                </table>
-                <table  style="float: left">
-                  <caption id="p1">Second Participant</caption>
-                  <th>
-                  <td>Weight</td>
-                  <td>a1</td>
-                  <td>a2</td>
-                  </th>
-                  <tr>
-                    <td> c1</td>
-                    <td>
-                      <input id="w_p2_c1" min="1" max="5" type="number" value="3" onkeydown="return false"
-                             onchange='updateInput()' />
-                    </td>
-                    <td>
-                      <input id="p2_a1_c1" min="1" max="5" value="3" type="number" onkeydown="return false"
-                             onchange='updateInput()' />
-                    </td>
-                    <td>
-                      <input id="p2_a2_c1" min="1" max="5" value="3" type="number" onkeydown="return false"
-                             onchange='updateInput()' />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td> c2</td>
-                    <td>
-                      <input id="w_p2_c2" min="1" max="5" value="3" type="number" onkeydown="return false"
-                             onchange='updateInput()' />
-                    </td>
-                    <td>
-                      <input id="p2_a1_c2" min="1" max="5" value="3" type="number" onkeydown="return false"
-                             onchange='updateInput()' />
-                    </td>
-                    <td>
-                      <input id="p2_a2_c2" min="1" max="5" value="3" type="number" onkeydown="return false"
-                             onchange='updateInput()' />
-                    </td>
-                  </tr>
-                </table>
-                <table  style="float: inherit">
-                  <caption id="p2">Third Participant</caption>
-                  <th>
-                  <td>Weight</td>
-                  <td>a1</td>
-                  <td>a2</td>
-                  </th>
-                  <tr>
-                    <td> c1</td>
-                    <td>
-                      <input id="w_p3_c1" min="1" max="5" type="number" value="3" onkeydown="return false"
-                             onchange='updateInput()' />
-                    </td>
-                    <td>
-                      <input id="p3_a1_c1" min="1" max="5" value="3" type="number" onkeydown="return false"
-                             onchange='updateInput()' />
-                    </td>
-                    <td>
-                      <input id="p3_a2_c1" min="1" max="5" value="3" type="number" onkeydown="return false"
-                             onchange='updateInput()' />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td> c2</td>
-                    <td>
-                      <input id="w_p3_c2" min="1" max="5" value="3" type="number" onkeydown="return false"
-                             onchange='updateInput()' />
-                    </td>
-                    <td>
-                      <input id="p3_a1_c2" min="1" max="5" value="3" type="number" onkeydown="return false"
-                             onchange='updateInput()' />
-                    </td>
-                    <td>
-                      <input id="p3_a2_c2" min="1" max="5" value="3" type="number" onkeydown="return false"
-                             onchange='updateInput()' />
-                    </td>
-                  </tr>
-                </table>
-                <br>
-                <br>
-                <br>
-                <br>
-                <table>
-                  <caption>Overall scores</caption>
-                  <th>
-                  <td>a1</td>
-                  <td>a2</td>
-                  </th>
-                  <tr>
-                    <td> c1</td>
-                    <td><label id="a1_c1"/></td>
-                    <td><label id="a2_c1"/></td>
-                  </tr>
-                  <tr>
-                    <td> c2</td>
-                    <td><label id="a1_c2"/></td>
-                    <td><label id="a2_c2"/></td>
-                  </tr>
-                  <tr>
-                    <td>Total</td>
-                    <td><label id="t_a1"/></td>
-                    <td><label id="t_a2"/></td>
-                  </tr>
-                </table>
-                <p id="rank"></p>
-                <p id="test"></p>
-              </div>
-            </form>
-          </div>
+    <div class="entry-content">
+      <h1> A short manual:</h1>
+      <form class="new_participant" id="new_participant" accept-charset="UTF-8" method="post">
+        <div class="field">
+          <table  style="float: left">
+            <caption id="p0">First Participant</caption>
+            <th>
+            <td>Weight</td>
+            <td id="a1">a1</td>
+            <td id="a2">a2</td>
+            </th>
+            <tr>
+              <td id="c1"> c1</td>
+              <td>
+                <input id="w_p1_c1" min="1" max="5" value="2" type="number" onkeydown="return false"
+                       onchange='updateInput()' />
+              </td>
+              <td>
+                <input id="p1_a1_c1" min="1" max="5" value="2"  type="number" onkeydown="return false"
+                       onchange='updateInput()'  />
+              </td>
+              <td>
+                <input id="p1_a2_c1" min="1" max="5" value="2"  type="number" onkeydown="return false"
+                       onchange='updateInput()'  />
+              </td>
+            </tr>
+            <tr>
+              <td id="c2"> c2</td>
+              <td>
+                <input id="w_p1_c2" min="1" max="5" value="2"  type="number" onkeydown="return false"
+                       onchange='updateInput()' />
+              </td>
+              <td>
+                <input id="p1_a1_c2" min="1" max="5" value="2"  type="number" onkeydown="return false"
+                       onchange='updateInput()' />
+              </td>
+              <td>
+                <input id="p1_a2_c2" min="1" max="5" value="2"  type="number" onkeydown="return false"
+                       onchange='updateInput()' />
+              </td>
+            </tr>
+          </table>
+          <table  style="float: left">
+            <caption id="p1">Second Participant</caption>
+            <th>
+            <td>Weight</td>
+            <td>a1</td>
+            <td>a2</td>
+            </th>
+            <tr>
+              <td> c1</td>
+              <td>
+                <input id="w_p2_c1" min="1" max="5" type="number" value="3" onkeydown="return false"
+                       onchange='updateInput()' />
+              </td>
+              <td>
+                <input id="p2_a1_c1" min="1" max="5" value="3" type="number" onkeydown="return false"
+                       onchange='updateInput()' />
+              </td>
+              <td>
+                <input id="p2_a2_c1" min="1" max="5" value="3" type="number" onkeydown="return false"
+                       onchange='updateInput()' />
+              </td>
+            </tr>
+            <tr>
+              <td> c2</td>
+              <td>
+                <input id="w_p2_c2" min="1" max="5" value="3" type="number" onkeydown="return false"
+                       onchange='updateInput()' />
+              </td>
+              <td>
+                <input id="p2_a1_c2" min="1" max="5" value="3" type="number" onkeydown="return false"
+                       onchange='updateInput()' />
+              </td>
+              <td>
+                <input id="p2_a2_c2" min="1" max="5" value="3" type="number" onkeydown="return false"
+                       onchange='updateInput()' />
+              </td>
+            </tr>
+          </table>
+          <table  style="float: inherit">
+            <caption id="p2">Third Participant</caption>
+            <th>
+            <td>Weight</td>
+            <td>a1</td>
+            <td>a2</td>
+            </th>
+            <tr>
+              <td> c1</td>
+              <td>
+                <input id="w_p3_c1" min="1" max="5" type="number" value="3" onkeydown="return false"
+                       onchange='updateInput()' />
+              </td>
+              <td>
+                <input id="p3_a1_c1" min="1" max="5" value="3" type="number" onkeydown="return false"
+                       onchange='updateInput()' />
+              </td>
+              <td>
+                <input id="p3_a2_c1" min="1" max="5" value="3" type="number" onkeydown="return false"
+                       onchange='updateInput()' />
+              </td>
+            </tr>
+            <tr>
+              <td> c2</td>
+              <td>
+                <input id="w_p3_c2" min="1" max="5" value="3" type="number" onkeydown="return false"
+                       onchange='updateInput()' />
+              </td>
+              <td>
+                <input id="p3_a1_c2" min="1" max="5" value="3" type="number" onkeydown="return false"
+                       onchange='updateInput()' />
+              </td>
+              <td>
+                <input id="p3_a2_c2" min="1" max="5" value="3" type="number" onkeydown="return false"
+                       onchange='updateInput()' />
+              </td>
+            </tr>
+          </table>
+          <br>
+          <br>
+          <table style="float: inherit">
+            <caption>Overall scores</caption>
+            <th>
+            <td>a1</td>
+            <td>a2</td>
+            </th>
+            <tr>
+              <td> c1</td>
+              <td><label id="a1_c1"/></td>
+              <td><label id="a2_c1"/></td>
+            </tr>
+            <tr>
+              <td> c2</td>
+              <td><label id="a1_c2"/></td>
+              <td><label id="a2_c2"/></td>
+            </tr>
+            <tr>
+              <td>Total</td>
+              <td><label id="t_a1"/></td>
+              <td><label id="t_a2"/></td>
+            </tr>
+          </table>
+          <br>
+          <br>
+          <h1> The Statistical Analysis:</h1>
+          <p id="rank"></p>
+          <p id="test"></p>
         </div>
-      </article>
+      </form>
     </div>
   </div>
 </div>
@@ -185,45 +177,45 @@
   }
 
 
-function updateInput() {
-  inputs = [
-    [
-      [parseInt(document.getElementById('w_p1_c1').value), parseInt(document.getElementById('p1_a1_c1').value), parseInt(document.getElementById('p1_a2_c1').value)],
-      [parseInt(document.getElementById('w_p1_c2').value), parseInt(document.getElementById('p1_a1_c2').value), parseInt(document.getElementById('p1_a2_c2').value)]
-    ],
-    [
-      [parseInt(document.getElementById('w_p2_c1').value), parseInt(document.getElementById('p2_a1_c1').value), parseInt(document.getElementById('p2_a2_c1').value)],
-      [parseInt(document.getElementById('w_p2_c2').value), parseInt(document.getElementById('p2_a1_c2').value), parseInt(document.getElementById('p2_a2_c2').value)]
-    ],
-    [
-      [parseInt(document.getElementById('w_p3_c1').value), parseInt(document.getElementById('p3_a1_c1').value), parseInt(document.getElementById('p3_a2_c1').value)],
-      [parseInt(document.getElementById('w_p3_c2').value), parseInt(document.getElementById('p3_a1_c2').value), parseInt(document.getElementById('p3_a2_c2').value)]
-    ]
-  ];
-  overall = updateOverall(inputs);
-  total = updateTotal(overall);
-  print(overall,total);
-  //unanimity(inputs);
-  //OpinionDifference(inputs);
+  function updateInput() {
+    inputs = [
+      [
+        [parseInt(document.getElementById('w_p1_c1').value), parseInt(document.getElementById('p1_a1_c1').value), parseInt(document.getElementById('p1_a2_c1').value)],
+        [parseInt(document.getElementById('w_p1_c2').value), parseInt(document.getElementById('p1_a1_c2').value), parseInt(document.getElementById('p1_a2_c2').value)]
+      ],
+      [
+        [parseInt(document.getElementById('w_p2_c1').value), parseInt(document.getElementById('p2_a1_c1').value), parseInt(document.getElementById('p2_a2_c1').value)],
+        [parseInt(document.getElementById('w_p2_c2').value), parseInt(document.getElementById('p2_a1_c2').value), parseInt(document.getElementById('p2_a2_c2').value)]
+      ],
+      [
+        [parseInt(document.getElementById('w_p3_c1').value), parseInt(document.getElementById('p3_a1_c1').value), parseInt(document.getElementById('p3_a2_c1').value)],
+        [parseInt(document.getElementById('w_p3_c2').value), parseInt(document.getElementById('p3_a1_c2').value), parseInt(document.getElementById('p3_a2_c2').value)]
+      ]
+    ];
+    overall = updateOverall(inputs);
+    total = updateTotal(overall);
+    print(overall,total);
+    //unanimity(inputs);
+    //OpinionDifference(inputs);
 
-  document.getElementById("rank").innerHTML=unanimity(inputs)+OpinionDifference(inputs);
-  //compare();
-}
-//get three dimensional array as input and return two dimensional array as output
-function updateOverall(inputArray) {
-  a = [
-    [
-      inputArray[0][0][0]*inputArray[0][0][1]+inputArray[1][0][0]*inputArray[1][0][1]+inputArray[2][0][0]*inputArray[2][0][1],
-      inputArray[0][0][0]*inputArray[0][0][2]+inputArray[1][0][0]*inputArray[1][0][2]+inputArray[2][0][0]*inputArray[2][0][2]
-    ],
-    [
-      inputArray[0][1][0]*inputArray[0][1][1]+inputArray[1][1][0]*inputArray[1][1][1]+inputArray[2][1][0]*inputArray[2][1][1],
-      inputArray[0][1][0]*inputArray[0][1][2]+inputArray[1][1][0]*inputArray[1][1][2]+inputArray[2][1][0]*inputArray[2][1][2]
-    ],
-  ];
+    document.getElementById("rank").innerHTML=unanimity(inputs)+OpinionDifference(inputs);
+    //compare();
+  }
+  //get three dimensional array as input and return two dimensional array as output
+  function updateOverall(inputArray) {
+    a = [
+      [
+        inputArray[0][0][0]*inputArray[0][0][1]+inputArray[1][0][0]*inputArray[1][0][1]+inputArray[2][0][0]*inputArray[2][0][1],
+        inputArray[0][0][0]*inputArray[0][0][2]+inputArray[1][0][0]*inputArray[1][0][2]+inputArray[2][0][0]*inputArray[2][0][2]
+      ],
+      [
+        inputArray[0][1][0]*inputArray[0][1][1]+inputArray[1][1][0]*inputArray[1][1][1]+inputArray[2][1][0]*inputArray[2][1][1],
+        inputArray[0][1][0]*inputArray[0][1][2]+inputArray[1][1][0]*inputArray[1][1][2]+inputArray[2][1][0]*inputArray[2][1][2]
+      ],
+    ];
 
-  return a;
-}
+    return a;
+  }
   //get two dimensional array as input and return one dimensional array as output
   function updateTotal(overallArray) {
     t = [overall[0][0]+overall[1][0],overall[0][1]+overall[1][1]];
@@ -296,8 +288,7 @@ function updateOverall(inputArray) {
       {
         if(Math.abs(inputArray[0][i][j] - inputArray[1][i][j]) >= 3)
         {
-          var an=j;
-          var a_id='a'+an;
+          var a_id='a'+j;
           var p1_id = 'p' +  0;
           var p2_id = 'p' +  1;
           // fared take the output from here please. read the line fully. you will understand what i am trying to do
@@ -308,8 +299,7 @@ function updateOverall(inputArray) {
 
         if(Math.abs(inputArray[1][i][j] - inputArray[2][i][j]) >= 3)
         {
-          var an=j;
-          var a_id='a'+an;
+          var a_id='a'+j;
           var p1_id = 'p' +  1;
           var p2_id = 'p' +  2;
           // fared take the output from here please. read the line fully. you will understand what i am trying to do
@@ -320,8 +310,7 @@ function updateOverall(inputArray) {
 
         if(Math.abs(inputArray[0][i][j] - inputArray[2][i][j]) >= 3)
         {
-          var an=j;
-          var a_id='a'+an;
+          var a_id='a'+j;
           var p1_id = 'p' +  0;
           var p2_id = 'p' +  2;
           // fared take the output from here please. read the line fully. you will understand what i am trying to do
