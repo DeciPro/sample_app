@@ -3,55 +3,64 @@
   <div class="container content-wrapper">
     <div class="entry-content">
       <h1> A short manual:</h1>
+      <p>Imagine the following scenario: You are the head of a big company. For improving your revenues you plan to invest some money.
+        For doing that you have identified two relevant alternatives: Investing in a new marketing campaign to reach more customers or
+        investing in a new production hall to faster produce your product.You assume that two criteria are relevant for evaluating the alternatives:
+        the amount of money it costs and the time it is needed for getting the money back from your investment. For the decision you invited
+        the CMO and the CFO via DeciPro to decide on the both alternatives. Below you can see how the participants have voted! For example:
+        The CMO thinks that it is very cheap to invest in a new marketing project, so he decided to give the highest values possible 5 for the money.
+        But the financial officer thinks this is a really bad decision and gives a worst score 1.
+        <br/>NOW try to change the values and you will see the effect of that on the decision.
+      </p>
       <form class="new_participant" id="new_participant" accept-charset="UTF-8" method="post">
         <div class="field">
           <table  style="float: left">
-            <caption id="p0">First Participant</caption>
+            <caption id="p0">YOU (Chief Executive Officer)</caption>
             <th>
             <td style="border-left: hidden" id="a0">Weight</td>
-            <td id="a1">a1</td>
-            <td id="a2">a2</td>
+            <td id="a1">New Production Hall</td>
+            <td id="a2">New Marketing Campaign</td>
             </th>
             <tr>
-              <td id="c1"> c1</td>
+              <td id="c1"> Money</td>
               <td style="border-left: hidden">
-                <input id="w_p1_c1" min="1" max="5" value="2" type="number" onkeydown="return false"
+                <input id="w_p1_c1" min="1" max="5" value="3" type="number" onkeydown="return false"
                        onchange='updateInput()' />
               </td>
               <td>
-                <input id="p1_a1_c1" min="1" max="5" value="2"  type="number" onkeydown="return false"
+                <input id="p1_a1_c1" min="1" max="5" value="3"  type="number" onkeydown="return false"
                        onchange='updateInput()'  />
               </td>
               <td>
-                <input id="p1_a2_c1" min="1" max="5" value="2"  type="number" onkeydown="return false"
+                <input id="p1_a2_c1" min="1" max="5" value="5"  type="number" onkeydown="return false"
                        onchange='updateInput()'  />
               </td>
             </tr>
             <tr>
-              <td id="c2"> c2</td>
+              <td id="c2"> Time</td>
               <td style="border-left: hidden">
-                <input id="w_p1_c2" min="1" max="5" value="2"  type="number" onkeydown="return false"
+                <input id="w_p1_c2" min="1" max="5" value="1"  type="number" onkeydown="return false"
                        onchange='updateInput()' />
               </td>
               <td>
-                <input id="p1_a1_c2" min="1" max="5" value="2"  type="number" onkeydown="return false"
+                <input id="p1_a1_c2" min="1" max="5" value="1"  type="number" onkeydown="return false"
                        onchange='updateInput()' />
               </td>
               <td>
-                <input id="p1_a2_c2" min="1" max="5" value="2"  type="number" onkeydown="return false"
+                <input id="p1_a2_c2" min="1" max="5" value="1"  type="number" onkeydown="return false"
                        onchange='updateInput()' />
               </td>
             </tr>
           </table>
           <table  style="float: left">
-            <caption id="p1">Second Participant</caption>
+            <caption id="p1">Chief Marketing Officer</caption>
             <th>
             <td style="border-left: hidden">Weight</td>
-            <td>a1</td>
-            <td>a2</td>
+            <td>New Production Hall</td>
+            <td>New Marketing Campaign</td>
             </th>
             <tr>
-              <td> c1</td>
+              <td> Money</td>
               <td style="border-left: hidden">
                 <input id="w_p2_c1" min="1" max="5" type="number" value="3" onkeydown="return false"
                        onchange='updateInput()' />
@@ -61,35 +70,35 @@
                        onchange='updateInput()' />
               </td>
               <td>
-                <input id="p2_a2_c1" min="1" max="5" value="3" type="number" onkeydown="return false"
+                <input id="p2_a2_c1" min="1" max="5" value="1" type="number" onkeydown="return false"
                        onchange='updateInput()' />
               </td>
             </tr>
             <tr>
-              <td> c2</td>
+              <td> Time</td>
               <td style="border-left: hidden">
-                <input id="w_p2_c2" min="1" max="5" value="3" type="number" onkeydown="return false"
+                <input id="w_p2_c2" min="1" max="5" value="1" type="number" onkeydown="return false"
                        onchange='updateInput()' />
               </td>
               <td>
-                <input id="p2_a1_c2" min="1" max="5" value="3" type="number" onkeydown="return false"
+                <input id="p2_a1_c2" min="1" max="5" value="4" type="number" onkeydown="return false"
                        onchange='updateInput()' />
               </td>
               <td>
-                <input id="p2_a2_c2" min="1" max="5" value="3" type="number" onkeydown="return false"
+                <input id="p2_a2_c2" min="1" max="5" value="1" type="number" onkeydown="return false"
                        onchange='updateInput()' />
               </td>
             </tr>
           </table>
           <table  style="float: inherit">
-            <caption id="p2">Third Participant</caption>
+            <caption id="p2">Chief financial officer</caption>
             <th>
             <td style="border-left: hidden">Weight</td>
-            <td>a1</td>
-            <td>a2</td>
+            <td>New Production Hall</td>
+            <td>New Marketing Campaign</td>
             </th>
             <tr>
-              <td> c1</td>
+              <td> Money</td>
               <td style="border-left: hidden">
                 <input id="w_p3_c1" min="1" max="5" type="number" value="3" onkeydown="return false"
                        onchange='updateInput()' />
@@ -99,22 +108,22 @@
                        onchange='updateInput()' />
               </td>
               <td>
-                <input id="p3_a2_c1" min="1" max="5" value="3" type="number" onkeydown="return false"
+                <input id="p3_a2_c1" min="1" max="5" value="5" type="number" onkeydown="return false"
                        onchange='updateInput()' />
               </td>
             </tr>
             <tr>
-              <td> c2</td>
+              <td> Time</td>
               <td style="border-left: hidden">
-                <input id="w_p3_c2" min="1" max="5" value="3" type="number" onkeydown="return false"
+                <input id="w_p3_c2" min="1" max="5" value="1" type="number" onkeydown="return false"
                        onchange='updateInput()' />
               </td>
               <td>
-                <input id="p3_a1_c2" min="1" max="5" value="3" type="number" onkeydown="return false"
+                <input id="p3_a1_c2" min="1" max="5" value="2" type="number" onkeydown="return false"
                        onchange='updateInput()' />
               </td>
               <td>
-                <input id="p3_a2_c2" min="1" max="5" value="3" type="number" onkeydown="return false"
+                <input id="p3_a2_c2" min="1" max="5" value="4" type="number" onkeydown="return false"
                        onchange='updateInput()' />
               </td>
             </tr>
@@ -124,16 +133,16 @@
           <table style="float: inherit">
             <caption>Overall scores</caption>
             <th>
-            <td>a1</td>
-            <td>a2</td>
+            <td>New Production Hall</td>
+            <td>New Marketing Campaign</td>
             </th>
             <tr>
-              <td> c1</td>
+              <td> Money</td>
               <td><label id="a1_c1"/></td>
               <td><label id="a2_c1"/></td>
             </tr>
             <tr>
-              <td> c2</td>
+              <td> Time</td>
               <td><label id="a1_c2"/></td>
               <td><label id="a2_c2"/></td>
             </tr>
@@ -145,8 +154,8 @@
           </table>
           <br>
           <br>
-          <h1> The Statistical Analysis:</h1>
-          <p id="rank"></p>
+          <h1>Analysis:</h1>
+          <div id="rank"></div>
           <p id="test"></p>
         </div>
         <div id="myDiv"></div>

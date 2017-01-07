@@ -57,19 +57,26 @@ function updateInput() {
             [parseInt(document.getElementById('w_p3_c2').value), parseInt(document.getElementById('p3_a1_c2').value), parseInt(document.getElementById('p3_a2_c2').value)]
         ]
     ];
-    var stringToprint = '';
+
     overall = updateOverall(inputs);
     total = updateTotal(overall);
     print(overall,total);
     winningAlternative=compare(total);
+    var general = '<h6>1. General:</h6>Alternative(s) in the winning set:<br/>'
     if (winningAlternative == 0)
-        stringToprint += 'Rank 1 is ' + document.getElementById("a1").innerHTML;
+        general += 'Rank 1 is ' + document.getElementById("a1").innerHTML + '<br/>Rank 2 is '+ document.getElementById("a2").innerHTML;
     else if (winningAlternative == -1)
-        stringToprint += 'Rank 1 are '+ document.getElementById("a1").innerHTML+' ,'+ document.getElementById("a2").innerHTML;
+        general += 'Rank 1 are '+ document.getElementById("a1").innerHTML+' ,'+ document.getElementById("a2").innerHTML;
     else
-        stringToprint += 'Rank 1 is '+ document.getElementById("a2").innerHTML;
+        general += 'Rank 1 is '+ document.getElementById("a2").innerHTML + '<br/>Rank 2 is ' + document.getElementById("a1").innerHTML;
 
-    document.getElementById("rank").innerHTML=stringToprint + unanimity(inputs)+OpinionDifference(inputs) + robustness(inputs);
+    var scoreUnanimity = '<br/><h6>2. Score Unanimity:</h6>' + unanimity(inputs);
+
+    var discrepancies = '<br/><h6>3. Discrepancies:</h6>' + OpinionDifference(inputs);
+
+    var sensitivityAndRobustness = '<br/><h6>4. Sensitivity and Robustness:</h6>' + robustness(inputs);
+
+    document.getElementById("rank").innerHTML= general + '<br/>' + scoreUnanimity + '<br/>' + discrepancies + '<br/>' + sensitivityAndRobustness;
     draw();
 }
 //get three dimensional array as input and return two dimensional array as output
@@ -120,7 +127,7 @@ function unanimity(inputArray){
         var cn=i+1;
         var c_id='c'+cn;
         criteriaUnanimityArray[i]=Math.floor(criteriaUnanimity);
-        stringToprint+="<br /> Unanimity for criteria" + document.getElementById(c_id).innerHTML + " is " + Math.floor(criteriaUnanimity) + " %";
+        stringToprint+="Unanimity for criteria" + document.getElementById(c_id).innerHTML + " is " + Math.floor(criteriaUnanimity) + " %<br />";
 
         finalUnanimity += criteriaUnanimity;
     }
@@ -128,7 +135,7 @@ function unanimity(inputArray){
     finalUnanimity /= num_criteria;
     oveallUnanimity = Math.floor(finalUnanimity);
 
-    stringToprint+="<br /> Overall unanimity is " + Math.floor(finalUnanimity) + " %";
+    stringToprint+="Overall unanimity is " + Math.floor(finalUnanimity) + " %";
     return stringToprint;
 }
 
@@ -197,7 +204,8 @@ function OpinionDifference(inputArray)
 
 function robustness(inputArray)
 {
-    var stringToPrint='<br/>The result is sensitive to: <br/>';
+    var stringToPrint='The result is sensitive to: <br/>';
+    var sensitivityCount=0;
     for (var i = 0; i<num_participants;i++)
     {
         for (var j = 0; j<num_criteria;j++)
@@ -240,20 +248,29 @@ function robustness(inputArray)
                 var ti = updateTotal(oi);
                 var wi = compare(ti);
 
-                if(wi!=winningAlternative)
-                    stringToPrint+= document.getElementById(p_id).innerHTML +', '+ document.getElementById(c_id).innerHTML + ', '+
+                if(wi!=winningAlternative) {
+                    stringToPrint += document.getElementById(p_id).innerHTML + ', ' + document.getElementById(c_id).innerHTML + ', ' +
                         document.getElementById(a_id).innerHTML + '<br/>';
+                    sensitivityCount++;
+                }
 
                 var od = updateOverall(newInputsDecrease);
                 var td = updateTotal(od);
                 var wd = compare(td);
-                if(wd!=winningAlternative)
-                    stringToPrint+= document.getElementById(p_id).innerHTML +', '+ document.getElementById(c_id).innerHTML + ', '+
+                if(wd!=winningAlternative) {
+                    stringToPrint += document.getElementById(p_id).innerHTML + ', ' + document.getElementById(c_id).innerHTML + ', ' +
                         document.getElementById(a_id).innerHTML + '<br/>';
+                    sensitivityCount++;
+                }
             }
 
         }
     }
+
+    if (sensitivityCount==0)
+        stringToPrint='';
+
+    stringToPrint+='The robustness is '+ Math.floor(sensitivityCount*100/36) +' %<br>';
     return stringToPrint;
 
 }
@@ -263,7 +280,6 @@ function arrayClone(destination, source) {
         for (var j = 0; j < num_criteria; j++) {
             for (var k = 0; k < max_alternatives + 1; k++) {
                 destination[i][j][k] = source[i][j][k];
-
             }
         }
     }
