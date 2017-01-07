@@ -25,6 +25,8 @@ var num_criteria = 2;
 var max_score = 5;
 var num_participants = 3;
 var max_alternatives = 2;
+var oveallUnanimity;
+var criteriaUnanimityArray = [];
 
 
 function compare() {
@@ -62,6 +64,7 @@ function updateInput() {
     //OpinionDifference(inputs);
 
     document.getElementById("rank").innerHTML=compare() + unanimity(inputs)+OpinionDifference(inputs);
+    draw();
     //compare();
 }
 //get three dimensional array as input and return two dimensional array as output
@@ -97,7 +100,6 @@ function print(array1, array2) {
 }
 
 function unanimity(inputArray){
-
     var finalUnanimity = 0;
     var stringToprint = '';
     for (var i = 0; i < num_criteria; i++)
@@ -112,12 +114,14 @@ function unanimity(inputArray){
         // fared.. take the output from here!!
         var cn=i+1;
         var c_id='c'+cn;
+        criteriaUnanimityArray.push(Math.floor(criteriaUnanimity));
         stringToprint+="<br /> Unanimity for criteria" + document.getElementById(c_id).innerHTML + " is " + Math.floor(criteriaUnanimity) + " %";
 
         finalUnanimity += criteriaUnanimity;
     }
 
     finalUnanimity /= num_criteria;
+    oveallUnanimity = Math.floor(finalUnanimity);
 
     stringToprint+="<br /> Overall unanimity is " + Math.floor(finalUnanimity) + " %";
     return stringToprint;
@@ -185,3 +189,20 @@ function OpinionDifference(inputArray)
     }
     return stringToprint;
 }
+
+function draw() {
+    var trace1 = {
+        x: ['Unanimity for criteria c1','Unanimity for criteria c2', 'Overall unanimity'],
+        y: [criteriaUnanimityArray[0],criteriaUnanimityArray[1],oveallUnanimity],
+        type: "bar"
+    };
+
+    var data = [trace1];
+    var layout = {
+        showlegend: false,
+        title: "Unanimity",
+        yaxis: {title: "Unanimity(%)"}
+    };
+    Plotly.newPlot('myDiv', data, layout);
+}
+
