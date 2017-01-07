@@ -21,6 +21,7 @@ var inputs = [];//this array contains the score for each participant first index
 var overall = [];//this array contains the overall score
 var total = [];//this array contains the total score for each alternative
 
+var winningAlternative;
 var num_criteria = 2;
 var max_score = 5;
 var num_participants = 3;
@@ -29,16 +30,15 @@ var oveallUnanimity;
 var criteriaUnanimityArray = [];
 
 
-function compare() {
+function compare(totalResult) {
 
-    var stringToprint = '';
-    if (total[0] > total[1])
-        stringToprint += 'Rank 1 is ' + document.getElementById("a1").innerHTML;
-    else if (total[0] == total[1])
-        stringToprint += 'Rank 1 are '+ document.getElementById("a1").innerHTML+' ,'+ document.getElementById("a2").innerHTML;
+    //var stringToprint = '';
+    if (totalResult[0] > totalResult[1])
+        return 0;
+    else if (totalResult[0] == totalResult[1])
+        return -1;
     else
-        stringToprint += 'Rank 1 is '+ document.getElementById("a2").innerHTML;
-    return stringToprint;
+        return 1;
 }
 
 
@@ -57,15 +57,20 @@ function updateInput() {
             [parseInt(document.getElementById('w_p3_c2').value), parseInt(document.getElementById('p3_a1_c2').value), parseInt(document.getElementById('p3_a2_c2').value)]
         ]
     ];
+    var stringToprint = '';
     overall = updateOverall(inputs);
     total = updateTotal(overall);
     print(overall,total);
-    //unanimity(inputs);
-    //OpinionDifference(inputs);
+    winningAlternative=compare(total);
+    if (winningAlternative == 0)
+        stringToprint += 'Rank 1 is ' + document.getElementById("a1").innerHTML;
+    else if (winningAlternative == -1)
+        stringToprint += 'Rank 1 are '+ document.getElementById("a1").innerHTML+' ,'+ document.getElementById("a2").innerHTML;
+    else
+        stringToprint += 'Rank 1 is '+ document.getElementById("a2").innerHTML;
 
-    document.getElementById("rank").innerHTML=compare() + unanimity(inputs)+OpinionDifference(inputs);
+    document.getElementById("rank").innerHTML=stringToprint + unanimity(inputs)+OpinionDifference(inputs) + robustness(inputs);
     draw();
-    //compare();
 }
 //get three dimensional array as input and return two dimensional array as output
 function updateOverall(inputArray) {
@@ -84,7 +89,7 @@ function updateOverall(inputArray) {
 }
 //get two dimensional array as input and return one dimensional array as output
 function updateTotal(overallArray) {
-    t = [overall[0][0]+overall[1][0],overall[0][1]+overall[1][1]];
+    t = [overallArray[0][0]+overallArray[1][0],overallArray[0][1]+overallArray[1][1]];
 
     return t;
 }
@@ -111,10 +116,10 @@ function unanimity(inputArray){
         var maxVariance = max_score * num_participants * (max_alternatives + 1);
         var criteriaUnanimity = ((maxVariance - criteriaVariance) * 100) / maxVariance;
 
-        // fared.. take the output from here!!
+
         var cn=i+1;
         var c_id='c'+cn;
-        criteriaUnanimityArray.push(Math.floor(criteriaUnanimity));
+        criteriaUnanimityArray[i]=Math.floor(criteriaUnanimity);
         stringToprint+="<br /> Unanimity for criteria" + document.getElementById(c_id).innerHTML + " is " + Math.floor(criteriaUnanimity) + " %";
 
         finalUnanimity += criteriaUnanimity;
@@ -190,6 +195,82 @@ function OpinionDifference(inputArray)
     return stringToprint;
 }
 
+function robustness(inputArray)
+{
+    var stringToPrint='<br/>The result is sensitive to: <br/>';
+    for (var i = 0; i<num_participants;i++)
+    {
+        for (var j = 0; j<num_criteria;j++)
+        {
+            for (var k = 0; k<max_alternatives+1;k++)
+            {
+                var cn=j+1;
+                var c_id='c'+cn;
+                var a_id='a'+j;
+                var pn = i;
+                var p_id = 'p' +  pn;
+
+                var newInputsIncrease = new Array();
+                newInputsIncrease[0]=new Array();
+                newInputsIncrease[0][0]=new Array();
+                newInputsIncrease[0][1]=new Array();
+                newInputsIncrease[1]=new Array();
+                newInputsIncrease[1][0]=new Array();
+                newInputsIncrease[1][1]=new Array();
+                newInputsIncrease[2]=new Array();
+                newInputsIncrease[2][0]=new Array();
+                newInputsIncrease[2][1]=new Array();
+                arrayClone(newInputsIncrease,inputArray);
+                newInputsIncrease[i][j][k]++;
+
+                var newInputsDecrease = new Array();
+                newInputsDecrease[0]=new Array();
+                newInputsDecrease[0][0]=new Array();
+                newInputsDecrease[0][1]=new Array();
+                newInputsDecrease[1]=new Array();
+                newInputsDecrease[1][0]=new Array();
+                newInputsDecrease[1][1]=new Array();
+                newInputsDecrease[2]=new Array();
+                newInputsDecrease[2][0]=new Array();
+                newInputsDecrease[2][1]=new Array();
+                arrayClone(newInputsDecrease,inputArray);
+                newInputsDecrease[i][j][k]--;
+
+                var oi = updateOverall(newInputsIncrease);
+                var ti = updateTotal(oi);
+                var wi = compare(ti);
+
+                if(wi!=winningAlternative)
+                    stringToPrint+= document.getElementById(p_id).innerHTML +', '+ document.getElementById(c_id).innerHTML + ', '+
+                        document.getElementById(a_id).innerHTML + '<br/>';
+
+                var od = updateOverall(newInputsDecrease);
+                var td = updateTotal(od);
+                var wd = compare(td);
+                if(wd!=winningAlternative)
+                    stringToPrint+= document.getElementById(p_id).innerHTML +', '+ document.getElementById(c_id).innerHTML + ', '+
+                        document.getElementById(a_id).innerHTML + '<br/>';
+            }
+
+        }
+    }
+    return stringToPrint;
+
+}
+
+function arrayClone(destination, source) {
+    for (var i = 0; i<num_participants;i++) {
+        for (var j = 0; j < num_criteria; j++) {
+            for (var k = 0; k < max_alternatives + 1; k++) {
+                destination[i][j][k] = source[i][j][k];
+
+            }
+        }
+    }
+}
+
+
+//drawing the graphic
 function draw() {
     var trace1 = {
         x: ['Unanimity for criteria c1','Unanimity for criteria c2', 'Overall unanimity'],
