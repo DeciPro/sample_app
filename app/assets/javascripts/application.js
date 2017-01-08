@@ -113,7 +113,7 @@ function print(array1, array2) {
 
 function unanimity(inputArray){
     var finalUnanimity = 0;
-    var stringToprint = '';
+    var stringToprint = "Unanimity indicate the level of agreement within your team.<br/>" ;
     for (var i = 0; i < num_criteria; i++)
     {
         var criteriaVariance = Math.abs(inputArray[0][i][0] - inputArray[1][i][0]) + Math.abs(inputArray[1][i][0] - inputArray[2][i][0]) + Math.abs(inputArray[2][i][0] - inputArray[0][i][0]) +
@@ -127,7 +127,7 @@ function unanimity(inputArray){
         var cn=i+1;
         var c_id='c'+cn;
         criteriaUnanimityArray[i]=Math.floor(criteriaUnanimity);
-        stringToprint+="Unanimity for criteria" + document.getElementById(c_id).innerHTML + " is " + Math.floor(criteriaUnanimity) + " %<br />";
+        stringToprint+="Unanimity for criteria" + document.getElementById(c_id).innerHTML + " is " + Math.floor(criteriaUnanimity) + " %  (best=100%, worst=0%).<br />";
 
         finalUnanimity += criteriaUnanimity;
     }
@@ -135,13 +135,13 @@ function unanimity(inputArray){
     finalUnanimity /= num_criteria;
     oveallUnanimity = Math.floor(finalUnanimity);
 
-    stringToprint+="Overall unanimity is " + Math.floor(finalUnanimity) + " %";
+    stringToprint+="Overall unanimity is " + Math.floor(finalUnanimity) + " % (best=100%, worst=0%).<br/><div id='myDiv'></div>";
     return stringToprint;
 }
 
 function OpinionDifference(inputArray)
 {
-    var stringToprint = '';
+    var stringToprint = 'Here is where your team members differ the most:<br/><br/>';
 
     for (var i = 0; i < num_criteria; i++)
     {
@@ -150,17 +150,17 @@ function OpinionDifference(inputArray)
         // take the output for difference in opinions on weights from here. Fared
         if(Math.abs(inputArray[0][i][0] - inputArray[1][i][0]) >= 3)
         {
-            stringToprint+="<br/>Participants 1 and 2 differ greatly on their weights for criteria " + document.getElementById(c_id).innerHTML;
+            stringToprint+="Participants 1 and 2 differ greatly on their weights for criteria " + document.getElementById(c_id).innerHTML + '<br/>';
         }
 
         if(Math.abs(inputArray[1][i][0] - inputArray[2][i][0]) >= 3)
         {
-            stringToprint+="<br/>Participants 2 and 3 differ greatly on their weights for criteria " + document.getElementById(c_id).innerHTML;
+            stringToprint+="Participants 2 and 3 differ greatly on their weights for criteria " + document.getElementById(c_id).innerHTML + '<br/>';
         }
 
         if(Math.abs(inputArray[2][i][0] - inputArray[0][i][0]) >= 3)
         {
-            stringToprint+="<br/>Participants 1 and 3 differ greatly on their weights for criteria " + document.getElementById(c_id).innerHTML;
+            stringToprint+="Participants 1 and 3 differ greatly on their weights for criteria " + document.getElementById(c_id).innerHTML + '<br/>';
         }
 
         for (var j = 1; j < max_alternatives + 1; j++)
@@ -171,9 +171,9 @@ function OpinionDifference(inputArray)
                 var p1_id = 'p' +  0;
                 var p2_id = 'p' +  1;
                 // fared take the output from here please. read the line fully. you will understand what i am trying to do
-                stringToprint+="<br/>Participants " + document.getElementById(p1_id).innerHTML  + " and " + document.getElementById(p2_id).innerHTML + " differ over criteria " +
+                stringToprint+="Participants " + document.getElementById(p1_id).innerHTML  + " and " + document.getElementById(p2_id).innerHTML + " differ over criteria " +
                     document.getElementById(c_id).innerHTML + " on alternative " +
-                    document.getElementById(a_id).innerHTML;
+                    document.getElementById(a_id).innerHTML + '<br/>';
             }
 
             if(Math.abs(inputArray[1][i][j] - inputArray[2][i][j]) >= 3)
@@ -182,9 +182,9 @@ function OpinionDifference(inputArray)
                 var p1_id = 'p' +  1;
                 var p2_id = 'p' +  2;
                 // fared take the output from here please. read the line fully. you will understand what i am trying to do
-                stringToprint+="<br/>Participants " + document.getElementById(p1_id).innerHTML  + " and " + document.getElementById(p2_id).innerHTML + " differ over criteria " +
+                stringToprint+="Participants " + document.getElementById(p1_id).innerHTML  + " and " + document.getElementById(p2_id).innerHTML + " differ over criteria " +
                     document.getElementById(c_id).innerHTML + " on alternative " +
-                    document.getElementById(a_id).innerHTML;
+                    document.getElementById(a_id).innerHTML + '<br/>';
             }
 
             if(Math.abs(inputArray[0][i][j] - inputArray[2][i][j]) >= 3)
@@ -193,9 +193,9 @@ function OpinionDifference(inputArray)
                 var p1_id = 'p' +  0;
                 var p2_id = 'p' +  2;
                 // fared take the output from here please. read the line fully. you will understand what i am trying to do
-                stringToprint+="<br/>Participants " + document.getElementById(p1_id).innerHTML  + " and " + document.getElementById(p2_id).innerHTML + " differ over criteria " +
+                stringToprint+="Participants " + document.getElementById(p1_id).innerHTML  + " and " + document.getElementById(p2_id).innerHTML + " differ over criteria " +
                     document.getElementById(c_id).innerHTML + " on alternative " +
-                    document.getElementById(a_id).innerHTML;
+                    document.getElementById(a_id).innerHTML + '<br/>';
             }
         }
     }
@@ -204,8 +204,10 @@ function OpinionDifference(inputArray)
 
 function robustness(inputArray)
 {
-    var stringToPrint='The result is sensitive to: <br/>';
+    var stringToPrint='The result is sensitive to:(Participant, Criteria, Alternative or Weight) <br/>';
     var sensitivityCount=0;
+    var invalidCases=0;
+    var validCases=0;
     for (var i = 0; i<num_participants;i++)
     {
         for (var j = 0; j<num_criteria;j++)
@@ -229,7 +231,11 @@ function robustness(inputArray)
                 newInputsIncrease[2][0]=new Array();
                 newInputsIncrease[2][1]=new Array();
                 arrayClone(newInputsIncrease,inputArray);
-                newInputsIncrease[i][j][k]++;
+                if(newInputsIncrease[i][j][k] < 5)
+                    newInputsIncrease[i][j][k]++;
+                else
+                    invalidCases++;
+
 
                 var newInputsDecrease = new Array();
                 newInputsDecrease[0]=new Array();
@@ -242,7 +248,10 @@ function robustness(inputArray)
                 newInputsDecrease[2][0]=new Array();
                 newInputsDecrease[2][1]=new Array();
                 arrayClone(newInputsDecrease,inputArray);
-                newInputsDecrease[i][j][k]--;
+                if(newInputsDecrease[i][j][k] > 1)
+                    newInputsDecrease[i][j][k]--;
+                else
+                    invalidCases++;
 
                 var oi = updateOverall(newInputsIncrease);
                 var ti = updateTotal(oi);
@@ -250,7 +259,7 @@ function robustness(inputArray)
 
                 if(wi!=winningAlternative) {
                     stringToPrint += document.getElementById(p_id).innerHTML + ', ' + document.getElementById(c_id).innerHTML + ', ' +
-                        document.getElementById(a_id).innerHTML + '<br/>';
+                        document.getElementById(a_id).innerHTML + ". (if it's increased by 1)<br/>";
                     sensitivityCount++;
                 }
 
@@ -259,7 +268,7 @@ function robustness(inputArray)
                 var wd = compare(td);
                 if(wd!=winningAlternative) {
                     stringToPrint += document.getElementById(p_id).innerHTML + ', ' + document.getElementById(c_id).innerHTML + ', ' +
-                        document.getElementById(a_id).innerHTML + '<br/>';
+                        document.getElementById(a_id).innerHTML + ". (if it's decreased by 1)<br/>";
                     sensitivityCount++;
                 }
             }
@@ -269,8 +278,10 @@ function robustness(inputArray)
 
     if (sensitivityCount==0)
         stringToPrint='';
+    validCases=36-invalidCases;
 
-    stringToPrint+='The robustness is '+ Math.floor(sensitivityCount*100/36) +' %<br>';
+    stringToPrint+='<br/>The robustness is '+ (100- Math.floor(sensitivityCount*100/validCases)) +' %.<br/> It is the opposite measure of the oveall ' +
+        'sensitivity of your decision<br/>and denotes how much your decision is dependant on individual opinions.<br>';
     return stringToPrint;
 
 }
@@ -289,7 +300,7 @@ function arrayClone(destination, source) {
 //drawing the graphic
 function draw() {
     var trace1 = {
-        x: ['Unanimity for criteria c1','Unanimity for criteria c2', 'Overall unanimity'],
+        x: ['Unanimity for criteria Money','Unanimity for criteria Time', 'Overall unanimity'],
         y: [criteriaUnanimityArray[0],criteriaUnanimityArray[1],oveallUnanimity],
         type: "bar"
     };
@@ -297,8 +308,7 @@ function draw() {
     var data = [trace1];
     var layout = {
         showlegend: false,
-        title: "Unanimity",
-        yaxis: {title: "Unanimity(%)"}
+        yaxis: {title: "Unanimity(%)"},
     };
     Plotly.newPlot('myDiv', data, layout);
 }

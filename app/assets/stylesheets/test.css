@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Bitter|Crimson+Text|Lemonada');
 
-.navbar {
-background-image: url(header.jpg);
-}
 
 .center{
   /*background-color: #729ff9;*/
@@ -46,13 +43,13 @@ header {
   margin:0;
   position: relative;
   width: 100%;
-  min-height: auto;
-  /*-webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-  background-position: center;*/
-  background-image: url('1.jpg');
+    /*min-height: auto;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    background-position: center;
+    background-image: url('1.jpg');*/
   text-align: center;
   color: white;
 }
