@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Bitter|Crimson+Text|Lemonada');
+
+.navbar {
+background-image: url(header.jpg);
+}
+
+.center{
+  /*background-color: #729ff9;*/
+}
+
+thead {
+	background-color: #b0d4f2;
+  font-weight: bold;
+  font-style: italic;
+  /*color: #000000;*/
+}
+
+table {
+	/*width: 100%; */
+	float: left;
+  border-style:none;
+}
+
+th,td {
+	border: 3px solid #fff;
+	padding: 5px;
+	text-align: center;
+}
+
+caption {
+  font-family: 'Lemonada', cursive;
+}
+
+
+tbody {
+
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-family: 'Bitter', serif;
+
+}
+
+header {
+  padding:0;
+  margin:0;
+  position: relative;
+  width: 100%;
+  min-height: auto;
+  /*-webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  background-position: center;*/
+  background-image: url('1.jpg');
+  text-align: center;
+  color: white;
+}
+header .header-content {
+  position: relative;
+  text-align: center;
+  padding: 100px 15px 100px;
+  width: 100%;
+}
+
+#rank{
+  font-family: 'Crimson Text', serif;
+  font-size: 18px;
+}
+
+p{
+  font-family: 'Crimson Text', serif;
+  font-size: 18px;
+}

@@ -2,7 +2,7 @@
 <div id="content" class="page-wrap">
   <div class="container content-wrapper">
     <div class="entry-content">
-      <h1> A short manual:</h1>
+      <h1 align="center"> A short manual:</h1>
       <p>Imagine the following scenario: You are the head of a big company. For improving your revenues you plan to invest some money.
         For doing that you have identified two relevant alternatives: Investing in a new marketing campaign to reach more customers or
         investing in a new production hall to faster produce your product.You assume that two criteria are relevant for evaluating the alternatives:
@@ -14,16 +14,22 @@
       </p>
       <form class="new_participant" id="new_participant" accept-charset="UTF-8" method="post">
         <div class="field">
+          <div class="row">
+            <div class="col-md-4">
           <table  style="float: left">
             <caption id="p0">YOU (Chief Executive Officer)</caption>
-            <th>
-            <td style="border-left: hidden" id="a0">Weight</td>
-            <td id="a1">New Production Hall</td>
-            <td id="a2">New Marketing Campaign</td>
-            </th>
+            <thead>
+              <tr>
+                <th></th>
+            <th id="a0">Weight</th>
+            <th id="a1">New Production Hall</th>
+            <th id="a2">New Marketing Campaign</th>
+            </tr>
+          </thead>
+          <tbody>
             <tr>
               <td id="c1"> Money</td>
-              <td style="border-left: hidden">
+              <td>
                 <input id="w_p1_c1" min="1" max="5" value="3" type="number" onkeydown="return false"
                        onchange='updateInput()' />
               </td>
@@ -38,7 +44,7 @@
             </tr>
             <tr>
               <td id="c2"> Time</td>
-              <td style="border-left: hidden">
+              <td >
                 <input id="w_p1_c2" min="1" max="5" value="1"  type="number" onkeydown="return false"
                        onchange='updateInput()' />
               </td>
@@ -51,17 +57,25 @@
                        onchange='updateInput()' />
               </td>
             </tr>
+            </tbody>
           </table>
+        </div>
+
+          <div class="col-md-4">
           <table  style="float: left">
             <caption id="p1">Chief Marketing Officer</caption>
-            <th>
-            <td style="border-left: hidden">Weight</td>
-            <td>New Production Hall</td>
-            <td>New Marketing Campaign</td>
-            </th>
+            <thead>
+              <tr>
+                <th></th>
+            <th>Weight</th>
+            <th>New Production Hall</th>
+            <th>New Marketing Campaign</th>
+            </tr>
+          </thead>
+          <tbody>
             <tr>
               <td> Money</td>
-              <td style="border-left: hidden">
+              <td>
                 <input id="w_p2_c1" min="1" max="5" type="number" value="3" onkeydown="return false"
                        onchange='updateInput()' />
               </td>
@@ -76,7 +90,7 @@
             </tr>
             <tr>
               <td> Time</td>
-              <td style="border-left: hidden">
+              <td>
                 <input id="w_p2_c2" min="1" max="5" value="1" type="number" onkeydown="return false"
                        onchange='updateInput()' />
               </td>
@@ -89,17 +103,25 @@
                        onchange='updateInput()' />
               </td>
             </tr>
+            </tbody>
           </table>
-          <table  style="float: inherit">
+        </div>
+
+          <div class="col-md-4">
+          <table style="float: left">
             <caption id="p2">Chief financial officer</caption>
-            <th>
-            <td style="border-left: hidden">Weight</td>
-            <td>New Production Hall</td>
-            <td>New Marketing Campaign</td>
-            </th>
+            <thead>
+              <tr>
+                <th></th>
+            <th>Weight</th>
+            <th>New Production Hall</th>
+            <th>New Marketing Campaign</th>
+            </tr>
+          </thead>
+          <tbody>
             <tr>
               <td> Money</td>
-              <td style="border-left: hidden">
+              <td>
                 <input id="w_p3_c1" min="1" max="5" type="number" value="3" onkeydown="return false"
                        onchange='updateInput()' />
               </td>
@@ -114,7 +136,7 @@
             </tr>
             <tr>
               <td> Time</td>
-              <td style="border-left: hidden">
+              <td>
                 <input id="w_p3_c2" min="1" max="5" value="1" type="number" onkeydown="return false"
                        onchange='updateInput()' />
               </td>
@@ -127,15 +149,27 @@
                        onchange='updateInput()' />
               </td>
             </tr>
+            </tbody>
           </table>
+            </div>
+          </div>
+
+        </div>
           <br>
           <br>
+          <div class="row">
+          <div class="col-md-6 col-md-offset-4">
           <table style="float: inherit">
             <caption>Overall scores</caption>
-            <th>
-            <td>New Production Hall</td>
-            <td>New Marketing Campaign</td>
-            </th>
+            <thead>
+              <tr>
+                <th></th>
+
+            <th>New Production Hall</th>
+            <th>New Marketing Campaign</th>
+            </tr>
+          </thead>
+          <tbody>
             <tr>
               <td> Money</td>
               <td><label id="a1_c1"/></td>
@@ -151,11 +185,14 @@
               <td><label id="t_a1"/></td>
               <td><label id="t_a2"/></td>
             </tr>
+            </tbody>
           </table>
+        </div>
+        </div>
           <br>
           <br>
-          <h1>Analysis:</h1>
-          <div id="rank"></div>
+          <h1 align="center">Analysis:</h1>
+          <div align="center" id="rank"></div>
           <p id="test"></p>
         </div>
         <div id="myDiv"></div>

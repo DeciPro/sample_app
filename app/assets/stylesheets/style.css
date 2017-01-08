@@ -375,7 +375,7 @@ Repeatable Patterns
 	}
 	body {
 		font: 14px/24px "Source Sans Pro", sans-serif;
-		background: #fff;
+		background: #b0d4f2;
 		color: #767676;
 	}
 	a {
@@ -641,7 +641,7 @@ Header
 	}
 	.site-description:empty {
 		margin: 0;
-	}	
+	}
 	.site-header.fixed {
 		position: fixed;
 	}
