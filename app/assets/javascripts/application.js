@@ -13,7 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-
+//= require turbolinks
+//= require_tree .
 
 
 var inputs = [];//this array contains the score for each participant first index for the participant, second index for the criteria, third index(0 for the weight and the other for the alternative)
