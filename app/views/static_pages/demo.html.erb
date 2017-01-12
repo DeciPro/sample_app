@@ -3,202 +3,206 @@
   <div class="container content-wrapper">
     <div class="entry-content">
       <h1 align="center"> A short manual:</h1>
-      <p>We have set up a small scenario for you to be able to see how useful DeciPro is to you.
-        You are the head of a big company.<br/> For improving your revenues you plan to invest some money.<br/><br/>
-        <b>You have two relevant alternatives:</b>
-        <li>Investing in a new marketing campaign to reach more customers </li><br/>
-        <li>investing in a new production hall to faster produce your product.</li><br/>
-        <p><b>You assume that two criteria are relevant for evaluating the alternatives:</b></p>
-        <li>the amount of money it costs</li><br/>
-        <li>the time it is needed for getting the money back from your investment.</li>
-        <br/><p>You are the Chief Executive Officer. To take the decision you invited the Chief Marketing Officer and the Chief Financial Officer via DeciPro to decide on the both alternatives.<br/>
+      <p>
+        Group decisions can have a huge impact on your business. And they are often characterized by uncertainty, complexity or high-risk consequences. 	But decisions need to be made – and fast! How?
+        For explaining you how, we created a small scenario where you are able to see how DeciPro works. And what kind of benefits you can get from 	that:<br/>
+
+        You are the head of a big company. For increasing your sales you plan to start a new marketing campaign.  <br/><br/>
+        <b>You have identified two relevant alternatives:</b>
+      <li>create a television advertising spot</li><br/>
+      <li>create a radio advertising spot</li><br/>
+      <p><b>You assume that two criteria are relevant for evaluating the alternatives:</b></p>
+      <li>the amount of money it costs</li><br/>
+      <li>the customer reach</li><br/>
+      <p>You are the Chief Executive Officer. To take the decision you invited the Chief Marketing Officer and the Chief Financial Officer 		via DeciPro to decide on the both alternatives.<br/>
         Below you can see how the participants have voted!<br/><br/>
-        The CMO thinks that it is very cheap to invest in a new marketing project, so he decided to give the highest values possible 5 for the money.
-        But the financial officer thinks this is a really bad decision and gives a worst score 1.<br/>
-        <br/><b>NOW</b> try to change the values and you will see the effect of that on the decision.</p>
+        The CMO thinks that it is very cheap to invest in a television advertising spot, so he decided to give the highest values possible 5 for 		the money.
+        But the financial officer thinks that the television advertising spot will be very expensive gives the worst score 1.<br/>
+        <br/><b>NOW</b> it's your turn: Change the numbers of your table and see the effect of votes having on the outcome.<br/>
+
       </p>
       <form class="new_participant" id="new_participant" accept-charset="UTF-8" method="post">
         <div class="field">
           <div class="row">
             <div class="col-md-4">
-          <table  style="float: left">
-            <caption id="p0">CEO</caption>
-            <thead>
-              <tr>
-                <th></th>
-            <th id="a0">Weight</th>
-            <th id="a1">Production Hall</th>
-            <th id="a2">Marketing Campaign</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td id="c1"> Money</td>
-              <td>
-                <input id="w_p1_c1" min="1" max="5" value="3" type="number" onkeydown="return false"
-                       onchange='updateInput()' />
-              </td>
-              <td>
-                <input id="p1_a1_c1" min="1" max="5" value="3"  type="number" onkeydown="return false"
-                       onchange='updateInput()'  />
-              </td>
-              <td>
-                <input id="p1_a2_c1" min="1" max="5" value="5"  type="number" onkeydown="return false"
-                       onchange='updateInput()'  />
-              </td>
-            </tr>
-            <tr>
-              <td id="c2"> Time</td>
-              <td >
-                <input id="w_p1_c2" min="1" max="5" value="1"  type="number" onkeydown="return false"
-                       onchange='updateInput()' />
-              </td>
-              <td>
-                <input id="p1_a1_c2" min="1" max="5" value="3"  type="number" onkeydown="return false"
-                       onchange='updateInput()' />
-              </td>
-              <td>
-                <input id="p1_a2_c2" min="1" max="5" value="1"  type="number" onkeydown="return false"
-                       onchange='updateInput()' />
-              </td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
+              <table disabled>
+                <caption id="p0">CEO</caption>
+                <thead>
+                <tr>
+                  <th></th>
+                  <th id="a0">Weight</th>
+                  <th id="a1">Production Hall</th>
+                  <th id="a2">Marketing Campaign</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td id="c1"> Money</td>
+                  <td>
+                    <input id="w_p1_c1" min="1" max="5" value="3" type="number" onkeydown="return false"
+                           onchange='updateInput()' />
+                  </td>
+                  <td>
+                    <input id="p1_a1_c1" min="1" max="5" value="3"  type="number" onkeydown="return false"
+                           onchange='updateInput()'  />
+                  </td>
+                  <td>
+                    <input id="p1_a2_c1" min="1" max="5" value="5"  type="number" onkeydown="return false"
+                           onchange='updateInput()'  />
+                  </td>
+                </tr>
+                <tr>
+                  <td id="c2"> Time</td>
+                  <td >
+                    <input id="w_p1_c2" min="1" max="5" value="1"  type="number" onkeydown="return false"
+                           onchange='updateInput()' />
+                  </td>
+                  <td>
+                    <input id="p1_a1_c2" min="1" max="5" value="3"  type="number" onkeydown="return false"
+                           onchange='updateInput()' />
+                  </td>
+                  <td>
+                    <input id="p1_a2_c2" min="1" max="5" value="1"  type="number" onkeydown="return false"
+                           onchange='updateInput()' />
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
 
-          <div class="col-md-4">
-          <table  style="float: left">
-            <caption id="p1">CMO</caption>
-            <thead>
-              <tr>
-                <th></th>
-            <th>Weight</th>
-            <th>Production Hall</th>
-            <th>Marketing Campaign</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td> Money</td>
-              <td>
-                <input id="w_p2_c1" min="1" max="5" type="number" value="3" onkeydown="return false"
-                       onchange='updateInput()' />
-              </td>
-              <td>
-                <input id="p2_a1_c1" min="1" max="5" value="3" type="number" onkeydown="return false"
-                       onchange='updateInput()' />
-              </td>
-              <td>
-                <input id="p2_a2_c1" min="1" max="5" value="1" type="number" onkeydown="return false"
-                       onchange='updateInput()' />
-              </td>
-            </tr>
-            <tr>
-              <td> Time</td>
-              <td>
-                <input id="w_p2_c2" min="1" max="5" value="1" type="number" onkeydown="return false"
-                       onchange='updateInput()' />
-              </td>
-              <td>
-                <input id="p2_a1_c2" min="1" max="5" value="4" type="number" onkeydown="return false"
-                       onchange='updateInput()' />
-              </td>
-              <td>
-                <input id="p2_a2_c2" min="1" max="5" value="1" type="number" onkeydown="return false"
-                       onchange='updateInput()' />
-              </td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
+            <div class="col-md-4">
+              <table>
+                <caption id="p1">CMO</caption>
+                <thead>
+                <tr>
+                  <th></th>
+                  <th>Weight</th>
+                  <th>Production Hall</th>
+                  <th>Marketing Campaign</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td> Money</td>
+                  <td>
+                    <input id="w_p2_c1" min="1" max="5" type="number" value="3" onkeydown="return false"
+                           onchange='updateInput()' />
+                  </td>
+                  <td>
+                    <input id="p2_a1_c1" min="1" max="5" value="3" type="number" onkeydown="return false"
+                           onchange='updateInput()' />
+                  </td>
+                  <td>
+                    <input id="p2_a2_c1" min="1" max="5" value="1" type="number" onkeydown="return false"
+                           onchange='updateInput()' />
+                  </td>
+                </tr>
+                <tr>
+                  <td> Time</td>
+                  <td>
+                    <input id="w_p2_c2" min="1" max="5" value="1" type="number" onkeydown="return false"
+                           onchange='updateInput()' />
+                  </td>
+                  <td>
+                    <input id="p2_a1_c2" min="1" max="5" value="4" type="number" onkeydown="return false"
+                           onchange='updateInput()' />
+                  </td>
+                  <td>
+                    <input id="p2_a2_c2" min="1" max="5" value="1" type="number" onkeydown="return false"
+                           onchange='updateInput()' />
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
 
-          <div class="col-md-4">
-          <table style="float: left">
-            <caption id="p2">CFO</caption>
-            <thead>
-              <tr>
-                <th></th>
-            <th>Weight</th>
-            <th>Production Hall</th>
-            <th>Marketing Campaign</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td> Money</td>
-              <td>
-                <input id="w_p3_c1" min="1" max="5" type="number" value="3" onkeydown="return false"
-                       onchange='updateInput()' />
-              </td>
-              <td>
-                <input id="p3_a1_c1" min="1" max="5" value="3" type="number" onkeydown="return false"
-                       onchange='updateInput()' />
-              </td>
-              <td>
-                <input id="p3_a2_c1" min="1" max="5" value="5" type="number" onkeydown="return false"
-                       onchange='updateInput()' />
-              </td>
-            </tr>
-            <tr>
-              <td> Time</td>
-              <td>
-                <input id="w_p3_c2" min="1" max="5" value="1" type="number" onkeydown="return false"
-                       onchange='updateInput()' />
-              </td>
-              <td>
-                <input id="p3_a1_c2" min="1" max="5" value="2" type="number" onkeydown="return false"
-                       onchange='updateInput()' />
-              </td>
-              <td>
-                <input id="p3_a2_c2" min="1" max="5" value="4" type="number" onkeydown="return false"
-                       onchange='updateInput()' />
-              </td>
-            </tr>
-            </tbody>
-          </table>
+            <div class="col-md-4">
+              <table>
+                <caption id="p2">CFO</caption>
+                <thead>
+                <tr>
+                  <th></th>
+                  <th>Weight</th>
+                  <th>Production Hall</th>
+                  <th>Marketing Campaign</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td> Money</td>
+                  <td>
+                    <input id="w_p3_c1" min="1" max="5" type="number" value="3" onkeydown="return false"
+                           onchange='updateInput()' />
+                  </td>
+                  <td>
+                    <input id="p3_a1_c1" min="1" max="5" value="3" type="number" onkeydown="return false"
+                           onchange='updateInput()' />
+                  </td>
+                  <td>
+                    <input id="p3_a2_c1" min="1" max="5" value="5" type="number" onkeydown="return false"
+                           onchange='updateInput()' />
+                  </td>
+                </tr>
+                <tr>
+                  <td> Time</td>
+                  <td>
+                    <input id="w_p3_c2" min="1" max="5" value="1" type="number" onkeydown="return false"
+                           onchange='updateInput()' />
+                  </td>
+                  <td>
+                    <input id="p3_a1_c2" min="1" max="5" value="2" type="number" onkeydown="return false"
+                           onchange='updateInput()' />
+                  </td>
+                  <td>
+                    <input id="p3_a2_c2" min="1" max="5" value="4" type="number" onkeydown="return false"
+                           onchange='updateInput()' />
+                  </td>
+                </tr>
+                </tbody>
+              </table>
             </div>
           </div>
 
         </div>
-          <br>
-          <br>
-          <div class="row">
+        <br>
+        <br>
+        <div class="row">
           <div class="col-md-6 col-md-offset-4">
-          <table style="float: inherit">
-            <caption>Overall scores</caption>
-            <thead>
+            <table>
+              <caption>Overall scores</caption>
+              <thead>
               <tr>
                 <th></th>
 
-            <th>Production Hall</th>
-            <th>Marketing Campaign</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td> Money</td>
-              <td><label id="a1_c1"/></td>
-              <td><label id="a2_c1"/></td>
-            </tr>
-            <tr>
-              <td> Time</td>
-              <td><label id="a1_c2"/></td>
-              <td><label id="a2_c2"/></td>
-            </tr>
-            <tr>
-              <td>Total</td>
-              <td><label id="t_a1"/></td>
-              <td><label id="t_a2"/></td>
-            </tr>
-            </tbody>
-          </table>
+                <th>Production Hall</th>
+                <th>Marketing Campaign</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td> Money</td>
+                <td><label id="a1_c1"/></td>
+                <td><label id="a2_c1"/></td>
+              </tr>
+              <tr>
+                <td> Time</td>
+                <td><label id="a1_c2"/></td>
+                <td><label id="a2_c2"/></td>
+              </tr>
+              <tr>
+                <td>Total</td>
+                <td><label id="t_a1"/></td>
+                <td><label id="t_a2"/></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-        </div>
-          <br>
-          <br>
-          <h1 align="center">Analysis:</h1>
-          <div align="center" id="rank"></div>
-          <p id="test"></p>
+        <br>
+        <br>
+        <h1 align="center">Analysis:</h1>
+        <div align="center" id="rank"></div>
+        <p id="test"></p>
 
       </form>
     </div>

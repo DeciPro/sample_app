@@ -158,7 +158,7 @@ aside {
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
-  margin-bottom: 15px;
+  /*margin-bottom: 15px;*/
   @include box_sizing;
 }
 
@@ -182,10 +182,11 @@ input {
 }
 
 /* table */
+/*
 table, th, td {
   border: 1px solid black;
   padding: 15px;
   //width: 300px;
   margin-right: 5px;
   margin-left: 5px;
-}
+}*/
