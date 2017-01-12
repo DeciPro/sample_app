@@ -13,31 +13,31 @@
       <li>create a radio advertising spot</li><br/>
       <p><b>You assume that two criteria are relevant for evaluating the alternatives:</b></p>
       <li>the amount of money it costs</li><br/>
-      <li>the customer reach</li><br/>
-      <p>You are the Chief Executive Officer. To take the decision you invited the Chief Marketing Officer and the Chief Financial Officer 		via DeciPro to decide on the both alternatives.<br/>
-        Below you can see how the participants have voted!<br/><br/>
-        The CMO thinks that it is very cheap to invest in a television advertising spot, so he decided to give the highest values possible 5 for 		the money.
-        But the financial officer thinks that the television advertising spot will be very expensive gives the worst score 1.<br/>
-        <br/><b>NOW</b> it's your turn: Change the numbers of your table and see the effect of votes having on the outcome.<br/>
+      <li>the customer reach</li>
+      <br/><p>You are the Chief Executive Officer. To take the decision you invited the Chief Marketing Officer and the Chief Financial Officer 		via DeciPro to decide on the both alternatives.<br/>
+      Below you can see how the participants have voted!<br/><br/>
+      The CMO thinks that it is very cheap to invest in a television advertising spot, so he decided to give the highest values possible 5 for 		the money.
+      But the financial officer thinks that the television advertising spot will be very expensive gives the worst score 1.<br/>
+      <br/><b>NOW</b> it's your turn: Change the numbers of your table and see the effect of votes having on the outcome.</br>
 
-      </p>
+    </p>
       <form class="new_participant" id="new_participant" accept-charset="UTF-8" method="post">
         <div class="field">
           <div class="row">
             <div class="col-md-4">
-              <table disabled>
+              <table  style="float: left">
                 <caption id="p0">CEO</caption>
                 <thead>
                 <tr>
                   <th></th>
                   <th id="a0">Weight</th>
-                  <th id="a1">Production Hall</th>
-                  <th id="a2">Marketing Campaign</th>
+                  <th id="a1">TV AD</th>
+                  <th id="a2">Radio AD</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                  <td id="c1"> Money</td>
+                  <td id="c1">Costs</td>
                   <td>
                     <input id="w_p1_c1" min="1" max="5" value="3" type="number" onkeydown="return false"
                            onchange='updateInput()' />
@@ -52,13 +52,13 @@
                   </td>
                 </tr>
                 <tr>
-                  <td id="c2"> Time</td>
+                  <td id="c2">Customer reach</td>
                   <td >
                     <input id="w_p1_c2" min="1" max="5" value="1"  type="number" onkeydown="return false"
                            onchange='updateInput()' />
                   </td>
                   <td>
-                    <input id="p1_a1_c2" min="1" max="5" value="3"  type="number" onkeydown="return false"
+                    <input id="p1_a1_c2" min="1" max="5" value="1"  type="number" onkeydown="return false"
                            onchange='updateInput()' />
                   </td>
                   <td>
@@ -68,98 +68,125 @@
                 </tr>
                 </tbody>
               </table>
+
             </div>
 
             <div class="col-md-4">
-              <table>
+              <table  style="float: left">
                 <caption id="p1">CMO</caption>
                 <thead>
                 <tr>
                   <th></th>
                   <th>Weight</th>
-                  <th>Production Hall</th>
-                  <th>Marketing Campaign</th>
+                  <th>TV AD</th>
+                  <th>Radio AD</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                  <td> Money</td>
+                  <td>Costs</td>
                   <td>
                     <input id="w_p2_c1" min="1" max="5" type="number" value="3" onkeydown="return false"
-                           onchange='updateInput()' />
+                           onchange='updateInput()' disabled/>
                   </td>
                   <td>
                     <input id="p2_a1_c1" min="1" max="5" value="3" type="number" onkeydown="return false"
-                           onchange='updateInput()' />
+                           onchange='updateInput()' disabled/>
                   </td>
                   <td>
                     <input id="p2_a2_c1" min="1" max="5" value="1" type="number" onkeydown="return false"
-                           onchange='updateInput()' />
+                           onchange='updateInput()' disabled/>
                   </td>
                 </tr>
                 <tr>
-                  <td> Time</td>
+                  <td>Customer reach</td>
                   <td>
                     <input id="w_p2_c2" min="1" max="5" value="1" type="number" onkeydown="return false"
-                           onchange='updateInput()' />
+                           onchange='updateInput()' disabled/>
                   </td>
                   <td>
                     <input id="p2_a1_c2" min="1" max="5" value="4" type="number" onkeydown="return false"
-                           onchange='updateInput()' />
+                           onchange='updateInput()' disabled/>
                   </td>
                   <td>
                     <input id="p2_a2_c2" min="1" max="5" value="1" type="number" onkeydown="return false"
-                           onchange='updateInput()' />
+                           onchange='updateInput()' disabled/>
                   </td>
                 </tr>
                 </tbody>
               </table>
+
             </div>
 
             <div class="col-md-4">
-              <table>
+              <table style="float: left">
                 <caption id="p2">CFO</caption>
                 <thead>
                 <tr>
                   <th></th>
                   <th>Weight</th>
-                  <th>Production Hall</th>
-                  <th>Marketing Campaign</th>
+                  <th>TV AD</th>
+                  <th>Radio AD</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                  <td> Money</td>
+                  <td>Costs</td>
                   <td>
                     <input id="w_p3_c1" min="1" max="5" type="number" value="3" onkeydown="return false"
-                           onchange='updateInput()' />
+                           onchange='updateInput()' disabled/>
                   </td>
                   <td>
                     <input id="p3_a1_c1" min="1" max="5" value="3" type="number" onkeydown="return false"
-                           onchange='updateInput()' />
+                           onchange='updateInput()' disabled/>
                   </td>
                   <td>
                     <input id="p3_a2_c1" min="1" max="5" value="5" type="number" onkeydown="return false"
-                           onchange='updateInput()' />
+                           onchange='updateInput()' disabled/>
                   </td>
                 </tr>
                 <tr>
-                  <td> Time</td>
+                  <td>Customer reach</td>
                   <td>
                     <input id="w_p3_c2" min="1" max="5" value="1" type="number" onkeydown="return false"
-                           onchange='updateInput()' />
+                           onchange='updateInput()' disabled/>
                   </td>
                   <td>
                     <input id="p3_a1_c2" min="1" max="5" value="2" type="number" onkeydown="return false"
-                           onchange='updateInput()' />
+                           onchange='updateInput()' disabled/>
                   </td>
                   <td>
                     <input id="p3_a2_c2" min="1" max="5" value="4" type="number" onkeydown="return false"
-                           onchange='updateInput()' />
+                           onchange='updateInput()' disabled/>
                   </td>
                 </tr>
                 </tbody>
               </table>
+
+            </div>
+          </div>
+
+          <!-- <h4 align="center">Analysis:</h1> -->
+          <p><b> THIS is the real innovation of DeciPro: The statistical analysis! </b></p>
+
+          <div class="row">
+            <div class="col-sm-4">
+              <div id="rank"></div>
+            </div>
+            <div class="col-sm-4">
+              <div id="unanimity"></div>
+
+            </div>
+            <div class="col-sm-4">
+              <div id="discrepancies"></div>
+            </div>
+          </div>
+
+
+
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <div id='myDiv'></div>
             </div>
           </div>
 
@@ -167,25 +194,25 @@
         <br>
         <br>
         <div class="row">
-          <div class="col-md-6 col-md-offset-4">
-            <table>
+          <div class="col-md-6">
+            <table style="float: left">
               <caption>Overall scores</caption>
               <thead>
               <tr>
                 <th></th>
 
-                <th>Production Hall</th>
-                <th>Marketing Campaign</th>
+                <th>TV AD</th>
+                <th>Radio AD</th>
               </tr>
               </thead>
               <tbody>
               <tr>
-                <td> Money</td>
+                <td>Costs</td>
                 <td><label id="a1_c1"/></td>
                 <td><label id="a2_c1"/></td>
               </tr>
               <tr>
-                <td> Time</td>
+                <td>Customer reach</td>
                 <td><label id="a1_c2"/></td>
                 <td><label id="a2_c2"/></td>
               </tr>
@@ -197,11 +224,13 @@
               </tbody>
             </table>
           </div>
+          <div class="col-md-6">
+            <div id='sensivity_robustness'></div>
+          </div>
         </div>
         <br>
         <br>
-        <h1 align="center">Analysis:</h1>
-        <div align="center" id="rank"></div>
+
         <p id="test"></p>
 
       </form>

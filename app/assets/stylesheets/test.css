@@ -25,7 +25,7 @@ th,td {
 }
 
 caption {
-  font-family: 'Lemonada', cursive;
+  font-family: 'Crimson Text', serif;
 }
 
 
@@ -60,10 +60,16 @@ header .header-content {
   width: 100%;
 }
 
-#rank{
+
+/*img {
+    max-width: 75%;
+    max-height: 75%;
+}*/
+
+/*#rank{
   font-family: 'Crimson Text', serif;
   font-size: 18px;
-}
+}*/
 
 p{
   font-family: 'Crimson Text', serif;
